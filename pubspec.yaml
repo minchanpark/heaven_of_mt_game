@@ -1,0 +1,42 @@
+name: heaven_of_mt
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  flutter_card_swiper: ^6.0.0
+  flutter_screenutil: ^5.9.0
+  firebase_core: ^2.15.1
+  provider: ^6.0.5
+  animated_text_kit: ^4.2.2
+  webview_flutter: ^4.4.4
+  http: ^1.1.2
+  url_launcher: ^6.2.4
+  firebase_analytics: ^10.8.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/person/
+    - assets/movie/
+    
+  fonts:
+  - family: DungGeunMo
+    fonts:
+      - asset: fonts/DungGeunMo.otf
