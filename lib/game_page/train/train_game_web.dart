@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,6 +26,10 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
   final CardSwiperController controller = CardSwiperController();
   List<GameCard> cards = []; // cards 변수를 초기화
   List<GameContents> randomTrain = [];
+  bool _isCounting = false;
+  bool _isShowing = false;
+  bool _showFinal = false;
+  int _count = 3;
   @override
   void initState() {
     super.initState();
@@ -33,8 +39,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
     // widget.id 값에 따라 cards 변수에 값을 할당
 
     final trainIndices = List<int>.generate(train.length, (i) => i);
-    randomTrain =
-        trainIndices.map((index) => train[index]).toList();
+    randomTrain = trainIndices.map((index) => train[index]).toList();
   }
 
   bool isUndoButtonVisible = true;
@@ -42,6 +47,43 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
   void dispose() {
     controller.dispose();
     super.dispose();
+  }
+
+  void _startCountdown() {
+    setState(() {
+     _isCounting = true;
+     _count = 3;
+    });
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      if(_count > 1) {
+        setState(() {
+          _count--;
+        });
+      } else {
+        timer.cancel();
+        setState(() {
+         _isCounting = false; 
+         _isShowing = true;
+         _count = 10;
+        });
+        _showProblem();
+      }
+    });
+  }
+  void _showProblem() {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      if(_count > 1) {
+        setState(() {
+          _count--;
+        });
+      } else {
+        timer.cancel();
+        setState(() {
+          _isShowing = false;
+          _showFinal = true;
+        });
+      }
+    });
   }
 
   @override
@@ -52,7 +94,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
         .map((gameContents) =>
             GameCard(gameContents: gameContents, fontSize: width * 0.045))
         .toList();
-    if (width < 1126 || height < 627) return ReadyPage();
+    if (width < 1126 || height < 627) return const ReadyPage();
     return Scaffold(
       backgroundColor: const Color.fromRGBO(14, 25, 62, 1),
       body: Stack(
@@ -127,7 +169,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                             '${currentCardIndex + 1}/${cards.length}',
                             style: TextStyle(
                               fontFamily: 'DungGeunMo',
-                              color: Colors.white,
+                              color: const Color.fromARGB(255, 88, 71, 71),
                               fontWeight: FontWeight.w400,
                               fontSize: width * 0.033,
                             ),
@@ -142,17 +184,16 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             isUndoButtonVisible
-                                ? IconButton(
-                                    onPressed: controller.undo,
-                                    color: Colors.transparent,
-                                    icon: const ImageIcon(
-                                      AssetImage(
-                                          'assets/images/icon_chevron_left.png'),
-                                    ),
-                                    iconSize: width * 0.07,
-                                  )
-                                : IconButton(
-                                    onPressed: () {
+                                ? GestureDetector(
+                                    onTap: () {
+                                      controller.undo();
+                                    },
+                                    child: Image.asset(
+                                      'assets/images/icon_chevron_left.png',
+                                      height: width * 0.07,
+                                    ))
+                                : GestureDetector(
+                                    onTap: () {
                                       controller.undo();
                                       if (currentCardIndex == 0) {
                                         setState(() {
@@ -160,13 +201,10 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                         });
                                       }
                                     },
-                                    color: Colors.transparent,
-                                    icon: const ImageIcon(
-                                      AssetImage(
-                                          'assets/images/icon_chevron_left_white.png'),
-                                    ),
-                                    iconSize: width * 0.07,
-                                  ),
+                                    child: Image.asset(
+                                      'assets/images/icon_chevron_left_white.png',
+                                      height: width * 0.07,
+                                    )),
                             SizedBox(
                               width: width * 0.725,
                               height: height * 0.64,
@@ -182,7 +220,13 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                   verticalThresholdPercentage,
                                 ) {
                                   currentCardIndex = index;
-                                  return cards[index];
+                                  return _isCounting
+                                  ? Text("$_count", style: const TextStyle(fontSize: 70))
+                                  : _isShowing // 시작 버튼;
+                                    ? cards[index]
+                                    : _showFinal
+                                      ? const Text("문장은 무엇일까요?", style: TextStyle(fontSize: 70))
+                                      : GestureDetector(onTap: _startCountdown, child: const Text("시작", style: TextStyle(fontSize: 70)));
                                 },
                                 isDisabled: true,
                                 onSwipe: _onSwipe,
@@ -251,5 +295,14 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
       currentCardIndex = currentIndex; // currentIndex가 null인 경우 기본값 0으로 설정
     });
     return true;
+  }
+}
+
+class StartButton extends StatelessWidget {
+  const StartButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
