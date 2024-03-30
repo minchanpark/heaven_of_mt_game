@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'game_tele.dart';
-import 'game_tele_app.dart';
 
 class TeleGamePage extends StatefulWidget {
   const TeleGamePage({super.key});

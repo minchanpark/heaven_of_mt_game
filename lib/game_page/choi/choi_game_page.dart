@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'game_choi.dart';
-import 'game_choi_app.dart';
 
 class ChoiGamePage extends StatefulWidget {
   const ChoiGamePage({

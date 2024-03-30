@@ -1189,3 +1189,9 @@ final List<GameContents> movie = [
           '저 사람이 내 사람이다\n저 남자가 내 남자다\n왜 말을 못하냐고',
       index: '73'),
 ];
+
+final List<GameContents> train = [
+  GameContents(name: '철수와 영희는 오늘 어푸푸동상 앞에서 만나, 앞구르기를 한 뒤, 애인트에서 녹차라떼 샷추가를 먹었다.', index: '1'),
+  GameContents(name: '외로운 도균이는 오늘 오석에서 긴 생머리에 키 163, 청바지에 바람막이를 입은 어여쁜 여학우를 보고 반하였다.', index: '2'),
+  GameContents(name: '9시 뉴스 속보입니다. 현재 24학번 부르심의 세대 새내기들은 다들 귀엽고 깜찍하고 이쁘고 잘생겨서 논란입니다.', index: '3'),
+];
