@@ -15,16 +15,15 @@ class TrainWebGame extends StatefulWidget {
   });
 
   @override
-  State<TrainWebGame> createState() => _DiscoWebGamePageState();
+  State<TrainWebGame> createState() => _TrainWebGamePageState();
 }
 
-class _DiscoWebGamePageState extends State<TrainWebGame> {
+class _TrainWebGamePageState extends State<TrainWebGame> {
   FocusNode focusNode = FocusNode();
   int currentCardIndex = 0; // 현재 카드의 인덱스를 저장할 변수
   final CardSwiperController controller = CardSwiperController();
   List<GameCard> cards = []; // cards 변수를 초기화
-  final random = Random();
-  List<GameContents> randomdisco = [];
+  List<GameContents> randomTrain = [];
   @override
   void initState() {
     super.initState();
@@ -33,9 +32,9 @@ class _DiscoWebGamePageState extends State<TrainWebGame> {
 
     // widget.id 값에 따라 cards 변수에 값을 할당
 
-    final discoIndices = List<int>.generate(disco.length, (i) => i);
-    randomdisco =
-        discoIndices.sublist(0, 10).map((index) => disco[index]).toList();
+    final trainIndices = List<int>.generate(train.length, (i) => i);
+    randomTrain =
+        trainIndices.map((index) => train[index]).toList();
   }
 
   bool isUndoButtonVisible = true;
@@ -49,9 +48,9 @@ class _DiscoWebGamePageState extends State<TrainWebGame> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    cards = randomdisco
+    cards = randomTrain
         .map((gameContents) =>
-            GameCard(gameContents: gameContents, fontSize: width * 0.108))
+            GameCard(gameContents: gameContents, fontSize: width * 0.045))
         .toList();
     if (width < 1126 || height < 627) return ReadyPage();
     return Scaffold(
@@ -70,9 +69,9 @@ class _DiscoWebGamePageState extends State<TrainWebGame> {
             child: Center(
               child: Container(
                 padding: EdgeInsets.only(
-                  left: width * 0.075,
-                  top: height * 0.073,
-                  right: width * 0.075,
+                  left: width * 0.055,
+                  top: height * 0.068,
+                  right: width * 0.055,
                 ),
                 child: RawKeyboardListener(
                   focusNode: focusNode,
@@ -90,11 +89,11 @@ class _DiscoWebGamePageState extends State<TrainWebGame> {
                         }
                       } else if (event.logicalKey ==
                           LogicalKeyboardKey.arrowRight) {
-                        if (currentCardIndex == 9) {
+                        if (currentCardIndex == 2) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => const GameOver(
-                                gameName: 'disco',
+                                gameName: 'train',
                               ),
                             ),
                           );
@@ -169,8 +168,8 @@ class _DiscoWebGamePageState extends State<TrainWebGame> {
                                     iconSize: width * 0.07,
                                   ),
                             SizedBox(
-                              width: width * 0.63,
-                              height: height * 0.4,
+                              width: width * 0.725,
+                              height: height * 0.64,
                               child: CardSwiper(
                                 duration: const Duration(milliseconds: 0),
                                 controller: controller,
@@ -192,11 +191,11 @@ class _DiscoWebGamePageState extends State<TrainWebGame> {
                             ),
                             IconButton(
                               onPressed: () {
-                                if (currentCardIndex == 9) {
+                                if (currentCardIndex == 2) {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
                                       builder: (context) => const GameOver(
-                                        gameName: 'disco',
+                                        gameName: 'train',
                                       ),
                                     ),
                                   );
