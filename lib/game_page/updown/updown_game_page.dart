@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:heaven_of_mt/card/updown_card.dart';
 import '../../game_contents.dart';
-import '../../card/card.dart';
 import '../../gameover/gameover_web.dart';
 import '../../ready.dart';
 

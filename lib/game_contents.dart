@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class GameContents {
   String name;
   String index;

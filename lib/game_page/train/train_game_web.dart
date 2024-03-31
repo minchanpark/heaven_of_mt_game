@@ -2,8 +2,6 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'dart:math';
-
 import '../../game_contents.dart';
 import '../../card/card.dart';
 import '../../gameover/gameover_web.dart';
@@ -33,8 +31,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
     // widget.id 값에 따라 cards 변수에 값을 할당
 
     final trainIndices = List<int>.generate(train.length, (i) => i);
-    randomTrain =
-        trainIndices.map((index) => train[index]).toList();
+    randomTrain = trainIndices.map((index) => train[index]).toList();
   }
 
   bool isUndoButtonVisible = true;
