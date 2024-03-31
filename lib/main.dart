@@ -20,7 +20,6 @@ import 'game_page/train/train_game_web.dart';
 import 'home/home_church.dart';
 import 'home/home.dart';
 import 'game_page/person/person_game_page.dart';
-import 'onboarding.dart';
 import 'splash.dart';
 
 Future<void> main() async {
