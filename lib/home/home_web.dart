@@ -2,6 +2,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:heaven_of_mt/game_page/updown/updown_game_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../game_page/captain/captain_game_page.dart';
@@ -27,7 +28,8 @@ List<String> _gameNames = <String>[
   '액션초성게임',
   '노래초성퀴즈',
   '명대사퀴즈',
-  '속삭이는 기차'
+  '속삭이는 기차',
+  '업다운',
 ];
 
 // 게임 설명 목록
@@ -42,6 +44,7 @@ List<Widget> contentList = [
   MusicOnboarding(),
   FamousLineOnboarding(),
   TrainOnboarding(),
+  UpDownOnboarding(),
 ];
 
 // 게임 페이지 묵룩
@@ -56,6 +59,7 @@ List<Widget> pageList = [
   const CategoryPage(),
   const MovieGamePage(),
   const TrainWebGame(),
+  const UpDownWebGame(),
 ];
 
 class HomeWeb extends StatefulWidget {
@@ -100,6 +104,12 @@ class _HomeWebState extends State<HomeWeb> {
         break;
       case 9:
         Navigator.pushNamed(context, '/movie');
+        break;
+      case 10:
+        Navigator.pushNamed(context, '/train');
+        break;
+      case 11:
+        Navigator.pushNamed(context, '/updown');
         break;
     }
   }
@@ -273,7 +283,7 @@ class _HomeWebState extends State<HomeWeb> {
                 if (event is RawKeyDownEvent) {
                   // 키보드 아래 화살표
                   if (event.logicalKey == LogicalKeyboardKey.arrowDown) {
-                    if (_selectedGame == 9) {
+                    if (_selectedGame == 10) {
                     } else {
                       setState(() {
                         _selectedGame = (_selectedGame + 1) % _gameNames.length;

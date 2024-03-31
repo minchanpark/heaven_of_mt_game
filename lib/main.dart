@@ -3,6 +3,7 @@ import 'dart:js' as js;
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:heaven_of_mt/game_page/updown/updown_game_page.dart';
 import 'church_game/church_captain.dart';
 import 'church_game/church_disco.dart';
 import 'church_game/church_four.dart';
@@ -53,6 +54,7 @@ Future<void> main() async {
         '/church_captain': (BuildContext context) => const ChurchCaptainGame(),
         '/church_four': (BuildContext context) => const ChurchFourGame(),
         '/train': (BuildContext context) => const TrainWebGame(),
+        '/updown': (BuildContext context) => const UpDownWebGame(),
       },
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),

@@ -21,6 +21,7 @@ class _PersonWebGameState extends State<PersonWebGame> {
   List<String> cards = []; // cards 변수를 초기화
   bool _isAnswered = false;
   String personName = '';
+
   final random = Random();
   @override
   void initState() {

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class GameContents {
   String name;
   String index;
@@ -5,6 +7,22 @@ class GameContents {
 
   GameContents({
     this.name = '',
+    required this.index,
+    this.answer = '',
+  });
+}
+
+class UpDownGameContents {
+  String name;
+  String explain1;
+  String explain2;
+  String index;
+  String answer;
+
+  UpDownGameContents({
+    this.name = '',
+    this.explain1 = '',
+    this.explain2 = '',
     required this.index,
     this.answer = '',
   });
@@ -1191,7 +1209,31 @@ final List<GameContents> movie = [
 ];
 
 final List<GameContents> train = [
-  GameContents(name: '철수와 영희는 오늘 어푸푸동상 앞에서 만나, 앞구르기를 한 뒤, 애인트에서 녹차라떼 샷추가를 먹었다.', index: '1'),
-  GameContents(name: '외로운 도균이는 오늘 오석에서 긴 생머리에 키 163, 청바지에 바람막이를 입은 어여쁜 여학우를 보고 반하였다.', index: '2'),
-  GameContents(name: '9시 뉴스 속보입니다. 현재 24학번 부르심의 세대 새내기들은 다들 귀엽고 깜찍하고 이쁘고 잘생겨서 논란입니다.', index: '3'),
+  GameContents(
+      name: '철수와 영희는 오늘 어푸푸동상 앞에서 만나, 앞구르기를 한 뒤, 애인트에서 녹차라떼 샷추가를 먹었다.',
+      index: '1'),
+  GameContents(
+      name: '외로운 도균이는 오늘 오석에서 긴 생머리에 키 163, 청바지에 바람막이를 입은 어여쁜 여학우를 보고 반하였다.',
+      index: '2'),
+  GameContents(
+      name: '9시 뉴스 속보입니다. 현재 24학번 부르심의 세대 새내기들은 다들 귀엽고 깜찍하고 이쁘고 잘생겨서 논란입니다.',
+      index: '3'),
+];
+
+final List<UpDownGameContents> updown = [
+  UpDownGameContents(name: '업다운', explain1: '#과연 #몇일까 #그 숫자는', index: '1'),
+  UpDownGameContents(
+      name: '1-100',
+      explain1: '#조원들이 함께 손을 들고      #지목하면 #외치기',
+      explain2: '',
+      index: '2'),
+  UpDownGameContents(
+      name: '정답: 50',
+      explain1: '25            up',
+      explain2: '80            down',
+      index: '3'),
+  UpDownGameContents(name: '업다운', explain1: '#과연 #몇일까 #그 숫자는', index: '4'),
+  UpDownGameContents(name: '', explain1: '80', index: '5'),
+  UpDownGameContents(name: '업다운', explain1: '#과연 #몇일까 #그 숫자는', index: '6'),
+  UpDownGameContents(name: '', explain1: '50', index: '7'),
 ];
