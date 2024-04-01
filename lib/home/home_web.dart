@@ -47,7 +47,7 @@ List<Widget> contentList = [
   FamousLineOnboarding(),
   TrainOnboarding(),
   UpDownOnboarding(),
-  ChoiOnboarding()
+  ChoiOnboarding(),
 ];
 
 // 게임 페이지 묵룩
@@ -63,7 +63,7 @@ List<Widget> pageList = [
   const MovieGamePage(),
   const TrainWebGame(),
   const UpDownWebGame(),
-  const PetitWebGame()
+  const PetitWebGame(),
 ];
 
 class HomeWeb extends StatefulWidget {
@@ -115,6 +115,7 @@ class _HomeWebState extends State<HomeWeb> {
       case 11:
         Navigator.pushNamed(context, '/updown');
         break;
+
       case 12:
         Navigator.pushNamed(context, '/petit');
         break;
