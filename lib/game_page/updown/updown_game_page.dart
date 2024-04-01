@@ -22,6 +22,8 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
   final CardSwiperController controller = CardSwiperController();
   List<UpdownGameCard> cards = []; // cards 변수를 초기화
   List<UpDownGameContents> updowncontents = [];
+  final TextEditingController _updowncontroller = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -48,11 +50,13 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    String userEnteredText = _updowncontroller.text;
+
     cards = updowncontents
         .map((updowngameContents) => UpdownGameCard(
             updowngameContents: updowngameContents, fontSize: width * 0.045))
         .toList();
-    if (width < 1126 || height < 627) return ReadyPage();
+    if (width < 1126 || height < 627) return const ReadyPage();
     return Scaffold(
       backgroundColor: const Color.fromRGBO(14, 25, 62, 1),
       body: Stack(
@@ -183,8 +187,71 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
                                     horizontalThresholdPercentage,
                                     verticalThresholdPercentage,
                                   ) {
-                                    currentCardIndex = index;
-                                    return cards[index];
+                                    return ((index == 4 &&
+                                                userEnteredText !=
+                                                    updowncontents[index]
+                                                        .explain1) ||
+                                            (index == 6 &&
+                                                userEnteredText !=
+                                                    updowncontents[index]
+                                                        .explain1))
+                                        ? Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  TextFormField(
+                                                    textAlign: TextAlign.center,
+                                                    controller:
+                                                        _updowncontroller,
+                                                    onChanged: (newValue) {
+                                                      setState(() {
+                                                        userEnteredText =
+                                                            newValue;
+                                                      });
+                                                    },
+                                                    style: const TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 70,
+                                                      fontFamily: 'DungGeunMo',
+                                                    ),
+                                                    cursorColor: Colors.white,
+                                                    decoration:
+                                                        const InputDecoration(
+                                                      border:
+                                                          OutlineInputBorder(),
+                                                      fillColor: Colors.white,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(height: 20),
+                                                ],
+                                              ),
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  if (int.parse(
+                                                          userEnteredText) <
+                                                      int.parse(
+                                                          updowncontents[index]
+                                                              .explain1)) {
+                                                    showdialogUP();
+                                                  } else if (int.parse(
+                                                          userEnteredText) >
+                                                      int.parse(
+                                                          updowncontents[index]
+                                                              .explain1)) {
+                                                    showdialogDown();
+                                                  } else {
+                                                    cards[index];
+                                                  }
+                                                },
+                                                child: const Text("test"),
+                                              ),
+                                            ],
+                                          )
+                                        : cards[index];
                                   },
                                   isDisabled: true,
                                   onSwipe: _onSwipe,
@@ -192,6 +259,7 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
                                 ),
                               ),
                             ),
+
                             IconButton(
                               onPressed: () {
                                 if (currentCardIndex == 6) {
@@ -233,6 +301,56 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
     );
   }
 
+  void showdialogUP() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => Dialog(
+        backgroundColor: Colors.white,
+        child: Container(
+          alignment: Alignment.center,
+          width: 100,
+          height: 100,
+          child: const Text(
+            'Up!!!!',
+            style: TextStyle(fontFamily: 'DungGeunMo', fontSize: 40),
+          ),
+        ),
+        /*actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context, '확인'),
+            child: const Text('확인',
+                style: TextStyle(fontFamily: 'DungGeunMo', fontSize: 30)),
+          ),
+        ],*/
+      ),
+    );
+  }
+
+  void showdialogDown() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => Dialog(
+        backgroundColor: Colors.white,
+        child: Container(
+          alignment: Alignment.center,
+          width: 100,
+          height: 100,
+          child: const Text(
+            'Down!!!!',
+            style: TextStyle(fontFamily: 'DungGeunMo', fontSize: 40),
+          ),
+        ),
+        /*actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context, '확인'),
+            child: const Text('확인',
+                style: TextStyle(fontFamily: 'DungGeunMo', fontSize: 30)),
+          ),
+        ],*/
+      ),
+    );
+  }
+
   bool _onSwipe(
     int previousIndex,
     int? currentIndex,
@@ -240,6 +358,7 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
   ) {
     setState(() {
       currentCardIndex = currentIndex ?? 0; // currentIndex가 null인 경우 기본값 0으로 설정
+      _updowncontroller.clear();
     });
 
     return true;
