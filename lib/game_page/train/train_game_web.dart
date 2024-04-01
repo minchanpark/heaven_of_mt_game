@@ -382,52 +382,6 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
     );
   }
 
-  /*Widget countOrButton() {
-    if (_isShowing && !_showFinal) {
-      // 카운트 숫자 표시
-      return Visibility(
-          visible: _isShowing,
-          child: Text("$_count",
-              style: const TextStyle(
-                fontFamily: 'DungGeunMo',
-                fontSize: 80,
-                color: Colors.white,
-              )));
-    } else if (!_isShowing && _showFinal) {
-      // 문제보기 버튼
-      return Visibility(
-        visible: _showFinal,
-        child: SizedBox(
-          width: 300,
-          height: 85,
-          child: ElevatedButton(
-            onPressed: () {
-              setState(() {
-                _isAnswered = !_isAnswered;
-              });
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor:
-                  _isAnswered ? Colors.white : const Color(0xffFF62D3),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12)),
-            ),
-            child: Text(
-              _isAnswered ? '돌아가기' : '문제보기',
-              style: const TextStyle(
-                fontFamily: 'DungGeunMo',
-                fontWeight: FontWeight.w400,
-                fontSize: 50,
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ),
-      );
-    }
-    return const SizedBox();
-  }*/
-
   bool _onSwipe(
     int previousIndex,
     int? currentIndex,
