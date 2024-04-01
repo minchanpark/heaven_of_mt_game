@@ -24,6 +24,7 @@ class _PetitWebGamePageState extends State<PetitWebGame> {
   List<GameCard> cards = []; // cards 변수를 초기화
   final random = Random();
   List<GameContents> randompetit = [];
+
   @override
   void initState() {
     super.initState();

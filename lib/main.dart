@@ -55,7 +55,7 @@ Future<void> main() async {
         '/church_four': (BuildContext context) => const ChurchFourGame(),
         '/train': (BuildContext context) => const TrainWebGame(),
         '/updown': (BuildContext context) => const UpDownWebGame(),
-        '/petit': (BuildContext context) => const PetitWebGame()
+        '/petit': (BuildContext context) => const PetitWebGame(),
       },
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),
