@@ -1235,3 +1235,11 @@ final List<UpDownGameContents> updown = [
   UpDownGameContents(name: '업다운', explain1: '#과연 #몇일까 #그 숫자는', index: '6'),
   UpDownGameContents(name: '', explain1: '50', index: '7'),
 ];
+
+final List<GameContents> petit = [
+  GameContents(name: 'ㄹ', index: '1'),
+  GameContents(name: 'ㅎ', index: '2'),
+  GameContents(name: 'ㅅ', index: '3'),
+  GameContents(name: 'ㄷ', index: '4'),
+  GameContents(name: 'ㅁ', index: '5'),
+];
