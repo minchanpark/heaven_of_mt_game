@@ -382,7 +382,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
     );
   }
 
-  Widget countOrButton() {
+  /*Widget countOrButton() {
     if (_isShowing && !_showFinal) {
       // 카운트 숫자 표시
       return Visibility(
@@ -426,7 +426,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
       );
     }
     return const SizedBox();
-  }
+  }*/
 
   bool _onSwipe(
     int previousIndex,
