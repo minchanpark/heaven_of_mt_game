@@ -291,7 +291,7 @@ class _HomeWebState extends State<HomeWeb> {
                 if (event is RawKeyDownEvent) {
                   // 키보드 아래 화살표
                   if (event.logicalKey == LogicalKeyboardKey.arrowDown) {
-                    if (_selectedGame == 10) {
+                    if (_selectedGame == 11) {
                     } else {
                       setState(() {
                         _selectedGame = (_selectedGame + 1) % _gameNames.length;
