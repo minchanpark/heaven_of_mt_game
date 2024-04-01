@@ -1231,9 +1231,9 @@ final List<UpDownGameContents> updown = [
       explain2: '80            down',
       index: '3'),
   UpDownGameContents(name: '업다운', explain1: '#과연 #몇일까 #그 숫자는', index: '4'),
-  UpDownGameContents(name: '', explain1: '80', index: '5'),
+  UpDownGameContents(name: '', explain1: '77', index: '5'),
   UpDownGameContents(name: '업다운', explain1: '#과연 #몇일까 #그 숫자는', index: '6'),
-  UpDownGameContents(name: '', explain1: '50', index: '7'),
+  UpDownGameContents(name: '', explain1: '33', index: '7'),
 ];
 
 final List<GameContents> petit = [
