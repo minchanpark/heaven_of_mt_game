@@ -11,6 +11,7 @@ import '../game_page/movie/movie_game_page.dart';
 import '../game_page/musictitle/category_musictitle.dart';
 import '../game_page/choi/choi_game_page.dart';
 import '../game_page/four/four_game_page.dart';
+import '../game_page/petit/game_petit.dart';
 import '../game_page/train/train_game_web.dart';
 import '../onboarding.dart';
 import '../game_page/person/person_game_page.dart';
@@ -30,6 +31,7 @@ List<String> _gameNames = <String>[
   '명대사퀴즈',
   '속삭이는 기차',
   '업다운',
+  '쁘띠바크'
 ];
 
 // 게임 설명 목록
@@ -45,6 +47,7 @@ List<Widget> contentList = [
   FamousLineOnboarding(),
   TrainOnboarding(),
   UpDownOnboarding(),
+  ChoiOnboarding(),
 ];
 
 // 게임 페이지 묵룩
@@ -60,6 +63,7 @@ List<Widget> pageList = [
   const MovieGamePage(),
   const TrainWebGame(),
   const UpDownWebGame(),
+  const PetitWebGame(),
 ];
 
 class HomeWeb extends StatefulWidget {
@@ -110,6 +114,10 @@ class _HomeWebState extends State<HomeWeb> {
         break;
       case 11:
         Navigator.pushNamed(context, '/updown');
+        break;
+
+      case 12:
+        Navigator.pushNamed(context, '/petit');
         break;
     }
   }
