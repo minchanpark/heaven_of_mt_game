@@ -53,12 +53,13 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCBuqpFhotXPHSU0GaOQvVJU6Y9NQFowV0',
-    appId: '1:105218992822:web:b5e048350d3021c4c15417',
-    messagingSenderId: '105218992822',
-    projectId: 'heavenofmt-49dc3',
-    authDomain: 'heavenofmt-49dc3.firebaseapp.com',
-    storageBucket: 'heavenofmt-49dc3.appspot.com',
-    measurementId: 'G-VXG4KMRPB2',
+    apiKey: 'AIzaSyDFyRWBzBfC4kqa3pyVlgxWfvgE8y6RbMQ',
+    appId: '1:791975595050:web:2f13c36a7826fd8b9d8753',
+    messagingSenderId: '791975595050',
+    projectId: 'havenofmt-4e4dc',
+    authDomain: 'havenofmt-4e4dc.firebaseapp.com',
+    storageBucket: 'havenofmt-4e4dc.appspot.com',
+    measurementId: 'G-S08EPXX7RS',
   );
+
 }
