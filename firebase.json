@@ -1,10 +1,22 @@
 {
   "hosting": {
-    "public": "build/web",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ]
+  },
+  "flutter": {
+    "platforms": {
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "havenofmt-4e4dc",
+          "configurations": {
+            "web": "1:791975595050:web:2f13c36a7826fd8b9d8753"
+          }
+        }
+      }
+    }
   }
 }
