@@ -13,7 +13,6 @@ import 'game_page/disco/disco_game_page.dart';
 import 'game_page/four/four_game_page.dart';
 import 'game_page/movie/movie_game_page.dart';
 import 'game_page/musictitle/category_musictitle.dart';
-import 'game_page/petit/game_petit.dart';
 import 'game_page/tele/tele_game_page.dart';
 import 'game_page/telestration/telestration_game_page.dart';
 import 'game_page/train/train_game_web.dart';
@@ -55,7 +54,6 @@ Future<void> main() async {
         '/church_four': (BuildContext context) => const ChurchFourGame(),
         '/train': (BuildContext context) => const TrainWebGame(),
         '/updown': (BuildContext context) => const UpDownWebGame(),
-        '/petit': (BuildContext context) => const PetitWebGame(),
       },
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),

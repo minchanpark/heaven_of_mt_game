@@ -2,7 +2,6 @@
 
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
-import 'package:heaven_of_mt/game_page/petit/game_petit.dart';
 import 'package:heaven_of_mt/game_page/train/train_game_web.dart';
 import 'package:heaven_of_mt/game_page/updown/updown_game_page.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -183,11 +182,6 @@ class _GameOverState extends State<GameOver> {
                                         MaterialPageRoute(
                                             builder: (context) =>
                                                 const UpDownWebGame()));
-                                  case 'petit':
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const PetitWebGame()));
                                     break;
 
                                   default:

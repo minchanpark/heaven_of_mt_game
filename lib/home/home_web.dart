@@ -11,7 +11,6 @@ import '../game_page/movie/movie_game_page.dart';
 import '../game_page/musictitle/category_musictitle.dart';
 import '../game_page/choi/choi_game_page.dart';
 import '../game_page/four/four_game_page.dart';
-import '../game_page/petit/game_petit.dart';
 import '../game_page/train/train_game_web.dart';
 import '../onboarding.dart';
 import '../game_page/person/person_game_page.dart';
@@ -31,7 +30,6 @@ List<String> _gameNames = <String>[
   '명대사퀴즈',
   '속삭이는 기차',
   '업다운',
-  '쁘띠바크'
 ];
 
 // 게임 설명 목록
@@ -63,7 +61,6 @@ List<Widget> pageList = [
   const MovieGamePage(),
   const TrainWebGame(),
   const UpDownWebGame(),
-  const PetitWebGame(),
 ];
 
 class HomeWeb extends StatefulWidget {
@@ -114,10 +111,6 @@ class _HomeWebState extends State<HomeWeb> {
         break;
       case 11:
         Navigator.pushNamed(context, '/updown');
-        break;
-
-      case 12:
-        Navigator.pushNamed(context, '/petit');
         break;
     }
   }
@@ -291,7 +284,7 @@ class _HomeWebState extends State<HomeWeb> {
                 if (event is RawKeyDownEvent) {
                   // 키보드 아래 화살표
                   if (event.logicalKey == LogicalKeyboardKey.arrowDown) {
-                    if (_selectedGame == 11) {
+                    if (_selectedGame == 10) {
                     } else {
                       setState(() {
                         _selectedGame = (_selectedGame + 1) % _gameNames.length;
