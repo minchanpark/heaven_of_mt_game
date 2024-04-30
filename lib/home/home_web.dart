@@ -143,7 +143,7 @@ class _HomeWebState extends State<HomeWeb> {
         Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/background_image.png'),
+              image: AssetImage('assets/images/back.png'),
               fit: BoxFit.cover,
             ),
           ),

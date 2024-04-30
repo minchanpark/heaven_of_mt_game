@@ -49,7 +49,7 @@ class _GameOverState extends State<GameOver> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/feedback.gif'),
+                image: AssetImage('assets/images/back.png'),
                 fit: BoxFit.fill,
               ),
             ),
