@@ -115,7 +115,7 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
                   width: 643,
                   height: 205,
                   child: Image.asset(
-                    'assets/images/back_image2.png',
+                    'assets/images/back_image_new.png',
                     fit: BoxFit.contain,
                   ),
                 ),

@@ -33,6 +33,8 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/images/back.png
+    - assets/images/back_image_new.png
     - assets/person/
     - assets/movie/
     
