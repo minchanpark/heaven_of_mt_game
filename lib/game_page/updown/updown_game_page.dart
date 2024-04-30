@@ -1,11 +1,16 @@
+import 'dart:ui';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:heaven_of_mt/card/updown_card.dart';
 import '../../game_contents.dart';
 import '../../gameover/gameover_web.dart';
 import '../../ready.dart';
+import 'updown_text_input.dart';
 
 class UpDownWebGame extends StatefulWidget {
   const UpDownWebGame({
@@ -22,7 +27,7 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
   final CardSwiperController controller = CardSwiperController();
   List<UpdownGameCard> cards = []; // cards 변수를 초기화
   List<UpDownGameContents> updowncontents = [];
-  final TextEditingController _updowncontroller = TextEditingController();
+  final TextEditingController _updownTextController = TextEditingController();
 
   @override
   void initState() {
@@ -50,7 +55,6 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    String userEnteredText = _updowncontroller.text;
 
     cards = updowncontents
         .map((updowngameContents) => UpdownGameCard(
@@ -64,7 +68,7 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/background_final.png"),
+                image: AssetImage("assets/images/background_image.png"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -174,7 +178,7 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
                             //게임을 보여주는 부분
                             Expanded(
                               child: SizedBox(
-                                width: width * 0.725,
+                                width: double.maxFinite,
                                 height: height * 0.64,
                                 child: CardSwiper(
                                   duration: const Duration(milliseconds: 0),
@@ -187,70 +191,8 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
                                     horizontalThresholdPercentage,
                                     verticalThresholdPercentage,
                                   ) {
-                                    return ((index == 4 &&
-                                                userEnteredText !=
-                                                    updowncontents[index]
-                                                        .explain1) ||
-                                            (index == 6 &&
-                                                userEnteredText !=
-                                                    updowncontents[index]
-                                                        .explain1))
-                                        ? Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  TextFormField(
-                                                    textAlign: TextAlign.center,
-                                                    controller:
-                                                        _updowncontroller,
-                                                    onChanged: (newValue) {
-                                                      setState(() {
-                                                        userEnteredText =
-                                                            newValue;
-                                                      });
-                                                    },
-                                                    style: const TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 70,
-                                                      fontFamily: 'DungGeunMo',
-                                                    ),
-                                                    cursorColor: Colors.white,
-                                                    decoration:
-                                                        const InputDecoration(
-                                                      border:
-                                                          OutlineInputBorder(),
-                                                      fillColor: Colors.white,
-                                                    ),
-                                                  ),
-                                                  const SizedBox(height: 20),
-                                                ],
-                                              ),
-                                              ElevatedButton(
-                                                onPressed: () {
-                                                  if (int.parse(
-                                                          userEnteredText) <
-                                                      int.parse(
-                                                          updowncontents[index]
-                                                              .explain1)) {
-                                                    showdialogUP();
-                                                  } else if (int.parse(
-                                                          userEnteredText) >
-                                                      int.parse(
-                                                          updowncontents[index]
-                                                              .explain1)) {
-                                                    showdialogDown();
-                                                  } else {
-                                                    cards[index];
-                                                  }
-                                                },
-                                                child: const Text("test"),
-                                              ),
-                                            ],
-                                          )
+                                    return ((index == 4) || (index == 6))
+                                        ? UpdownTextInput(index: index)
                                         : cards[index];
                                   },
                                   isDisabled: true,
@@ -301,56 +243,6 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
     );
   }
 
-  void showdialogUP() {
-    showDialog<String>(
-      context: context,
-      builder: (BuildContext context) => Dialog(
-        backgroundColor: Colors.white,
-        child: Container(
-          alignment: Alignment.center,
-          width: 100,
-          height: 100,
-          child: const Text(
-            'Up!!!!',
-            style: TextStyle(fontFamily: 'DungGeunMo', fontSize: 40),
-          ),
-        ),
-        /*actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.pop(context, '확인'),
-            child: const Text('확인',
-                style: TextStyle(fontFamily: 'DungGeunMo', fontSize: 30)),
-          ),
-        ],*/
-      ),
-    );
-  }
-
-  void showdialogDown() {
-    showDialog<String>(
-      context: context,
-      builder: (BuildContext context) => Dialog(
-        backgroundColor: Colors.white,
-        child: Container(
-          alignment: Alignment.center,
-          width: 100,
-          height: 100,
-          child: const Text(
-            'Down!!!!',
-            style: TextStyle(fontFamily: 'DungGeunMo', fontSize: 40),
-          ),
-        ),
-        /*actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.pop(context, '확인'),
-            child: const Text('확인',
-                style: TextStyle(fontFamily: 'DungGeunMo', fontSize: 30)),
-          ),
-        ],*/
-      ),
-    );
-  }
-
   bool _onSwipe(
     int previousIndex,
     int? currentIndex,
@@ -358,7 +250,7 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
   ) {
     setState(() {
       currentCardIndex = currentIndex ?? 0; // currentIndex가 null인 경우 기본값 0으로 설정
-      _updowncontroller.clear();
+      _updownTextController.clear();
     });
 
     return true;
