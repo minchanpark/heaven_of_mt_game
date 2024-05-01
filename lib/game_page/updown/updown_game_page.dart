@@ -1,10 +1,6 @@
-import 'dart:ui';
-
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:heaven_of_mt/card/updown_card.dart';
 import '../../game_contents.dart';

@@ -18,8 +18,9 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
   List<UpDownGameContents> updowncontents = [];
   late String textInput;
   late int userGuess;
-  late String displayValueMin = '0'; // 초기값 설정
-  late String displayValueMax = '0'; // 초기값 설정
+  late String displayValueMin = '  '; // 초기값 설정
+  late String displayValueMax = '  '; // 초기값 설정
+  late String explain = '예상되는 숫자를 입력한 후 ENTER를 누르세요!'; //값을 입력하고 나올 초기값 설정
 
   @override
   void initState() {
@@ -76,18 +77,54 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
     if (targetNumber != null) {
       if (userGuess > targetNumber) {
         displayValueMin = inputValue;
+        explain = 'Down!';
       } else if (userGuess < targetNumber) {
         displayValueMax = inputValue;
+        explain = 'Up!';
       } else {
-        displayValueMin = '0';
+        displayValueMin = '  ';
       }
     } else {
-      displayValueMax = '0';
+      displayValueMax = '  ';
     }
 
     setState(() {
       // UI 업데이트
     });
+  }
+
+  Widget _updateText(String text) {
+    if (text == 'Up!') {
+      return Text(
+        text,
+        style: const TextStyle(
+          color: Color(0xff00F0FF),
+          fontSize: 96,
+          fontWeight: FontWeight.w400,
+          fontFamily: 'DungGeunMo',
+        ),
+      );
+    } else if (text == 'Down!') {
+      return Text(
+        text,
+        style: const TextStyle(
+          color: Color(0xff00F0FF),
+          fontSize: 96,
+          fontWeight: FontWeight.w400,
+          fontFamily: 'DungGeunMo',
+        ),
+      );
+    } else {
+      return const Text(
+        '예상되는 숫자를 입력한 후 ENTER를 누르세요!',
+        style: TextStyle(
+          color: Color(0xfffffbfe),
+          fontSize: 40,
+          fontWeight: FontWeight.w400,
+          fontFamily: 'DungGeunMo',
+        ),
+      );
+    }
   }
 
   @override
@@ -96,16 +133,10 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
 
     return Column(
       children: [
-        const Text(
-          '예상되는 숫자를 입력한 후 ENTER를 누르세요!',
-          style: TextStyle(
-            color: Color(0xfffffbfe),
-            fontSize: 40,
-            fontWeight: FontWeight.w400,
-            fontFamily: 'DungGeunMo',
-          ),
-        ),
-        const SizedBox(height: 106),
+        _updateText(explain),
+        (explain == 'Up!' || explain == 'Down!')
+            ? SizedBox(height: 53)
+            : SizedBox(height: 106),
         Stack(
           alignment: Alignment.center,
           children: [
