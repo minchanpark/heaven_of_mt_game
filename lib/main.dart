@@ -60,8 +60,8 @@ Future<void> main() async {
       ],
     ),
   );
-  js.context.callMethod('ChannelIO', [
-    'boot',
-    {"pluginKey": "4cf501ee-0328-4a70-af7e-edb184d5981f"}
-  ]);
+  // js.context.callMethod('ChannelIO', [
+  //   'boot',
+  //   {"pluginKey": "4cf501ee-0328-4a70-af7e-edb184d5981f"}
+  // ]);
 }

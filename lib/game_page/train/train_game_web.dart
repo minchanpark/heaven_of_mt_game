@@ -4,6 +4,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import '../../button_widget.dart';
 import '../../game_contents.dart';
 import '../../card/card.dart';
 import '../../gameover/gameover_web.dart';
@@ -28,9 +29,8 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
   bool _isShowing = false; // 문제 보여짐 여부
   bool _showFinal = false; // 문제 타이머 종료 여부
   bool _isAnswered = false;
-  late Timer countdownTimer;
-  late Timer problemTimer;
-  int _count = 3;
+  Timer countdownTimer = Timer(Duration.zero, () {});
+  int _count = 10;
   @override
   void initState() {
     super.initState();
@@ -44,42 +44,16 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
   }
 
   bool isUndoButtonVisible = true;
+
   @override
   void dispose() {
     controller.dispose();
     super.dispose();
   }
 
-  // 문제 보여주기 전 3초 타이머 함수
-  void _startCountdown() {
-    setState(() {
-      _isCounting = true;
-      _count = 3;
-    });
-    debugPrint(
-        "_isCounting: $_isCounting, _isShowing: $_isShowing, _showFinal: $_showFinal");
-    countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (_count > 1) {
-        setState(() {
-          _count--;
-        });
-      } else {
-        timer.cancel();
-        setState(() {
-          _isCounting = false;
-          _isShowing = true;
-          _count = 10;
-        });
-        debugPrint(
-            "_isCounting: $_isCounting, _isShowing: $_isShowing, _showFinal: $_showFinal");
-        _showProblem();
-      }
-    });
-  }
-
   // 문제가 보여진 후 10초 타이머 함수
-  void _showProblem() {
-    problemTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+  void _startCountdown() {
+    countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_count > 1) {
         setState(() {
           _count--;
@@ -102,11 +76,10 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
   void _resetTimer() {
     setState(() {
       countdownTimer.cancel();
-      problemTimer.cancel();
       _isCounting = false;
       _isShowing = false;
       _showFinal = false;
-      _count = 3;
+      _count = 10;
     });
   }
 
@@ -126,7 +99,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/background_final.png"),
+                image: AssetImage("assets/images/back.png"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -179,44 +152,57 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                   },
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                      Stack(
+                        // mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          IconButton(
-                            onPressed: () {
-                              // 타이머 진행중이면 버튼 disable
-                              if (_isCounting || _isShowing) {
-                                return;
-                              }
-                              Navigator.of(context).pop();
-                            },
-                            color: Colors.white,
-                            icon: const ImageIcon(
-                                AssetImage('assets/images/Exit.png')),
-                            iconSize: width * 0.03,
-                          ),
-                          const Spacer(),
-                          Text(
-                            '${currentCardIndex + 1}/${cards.length}',
-                            style: TextStyle(
-                              fontFamily: 'DungGeunMo',
+                          Row(children: [
+                            IconButton(
+                              onPressed: () {
+                                // 타이머 진행중이면 버튼 disable
+                                if (_isCounting || _isShowing) {
+                                  return;
+                                }
+                                Navigator.of(context)
+                                    .pushReplacementNamed('/home');
+                              },
                               color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              fontSize: width * 0.033,
+                              icon: const ImageIcon(
+                                  AssetImage('assets/images/Exit.png')),
+                              iconSize: width * 0.03,
+                            ),
+                          ]),
+                          // const Spacer(),
+                          Center(
+                            child: Text(
+                              '${currentCardIndex + 1}/${cards.length}',
+                              style: TextStyle(
+                                fontFamily: 'DungGeunMo',
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: width * 0.033,
+                              ),
                             ),
                           ),
-                          const Spacer(),
+                          // const Spacer(),
                           _isShowing
-                              ? SizedBox(
-                                  width: width * 0.039,
-                                  child: Text("$_count",
-                                      style: const TextStyle(
-                                        fontFamily: 'DungGeunMo',
-                                        fontSize: 50,
-                                        color: Colors.white,
-                                      )),
+                              ? Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Image.asset('assets/images/hourglass.png',
+                                        height: 30),
+                                    const SizedBox(width: 13),
+                                    SizedBox(
+                                      width: 80,
+                                      child: Text("$_count",
+                                          style: const TextStyle(
+                                            fontFamily: 'DungGeunMo',
+                                            fontSize: 70,
+                                            color: Colors.white,
+                                          )),
+                                    ),
+                                  ],
                                 )
-                              : SizedBox(width: width * 0.039)
+                              : const SizedBox(width: 113, height: 30)
                         ],
                       ),
                       Expanded(
@@ -264,112 +250,104 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                   verticalThresholdPercentage,
                                 ) {
                                   currentCardIndex = index;
-                                  return _isCounting
-                                      // 타이머 진행 중 초 표시
-                                      ? Center(
-                                          child: Text("$_count",
-                                              style: const TextStyle(
-                                                fontFamily: 'DungGeunMo',
-                                                fontSize: 80,
-                                                color: Colors.white,
-                                              )),
-                                        )
-                                      : _isShowing
-                                          // 문제 표시
-                                          ? cards[index]
-                                          : _showFinal
-                                              // 문제 표시 후 10초가 흘렀을 때
-                                              ? _isAnswered
-                                                  ? cards[index]
-                                                  : const Center(
-                                                      child: Text("문장은 무엇일까요?",
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'DungGeunMo',
-                                                            fontSize: 80,
-                                                            color: Colors.white,
-                                                          )),
-                                                    )
-                                              // 타이머 시작 전
-                                              : Center(
-                                                  child: GestureDetector(
-                                                      onTap: _startCountdown,
-                                                      child: const Text("시작",
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'DungGeunMo',
-                                                            fontSize: 80,
-                                                            color: Colors.white,
-                                                          ))),
-                                                );
+                                  return _isShowing
+                                      // 문제 표시
+                                      ? cards[index]
+                                      : _showFinal
+                                          // 문제 표시 후 10초가 흘렀을 때
+                                          ? _isAnswered
+                                              ? cards[index]
+                                              : const Center(
+                                                  child: Text("문장은 무엇일까요?",
+                                                      style: TextStyle(
+                                                        fontFamily:
+                                                            'DungGeunMo',
+                                                        fontSize: 80,
+                                                        color: Colors.white,
+                                                      )),
+                                                )
+                                          // 타이머 시작 전
+                                          : const Center(
+                                              child: Text(
+                                                  "각 조의 첫 번째 주자는\n사회자에게 제시문을 확인해주세요!",
+                                                  style: TextStyle(
+                                                    fontFamily: 'DungGeunMo',
+                                                    fontSize: 54,
+                                                    color: Colors.white,
+                                                  ),
+                                                  textAlign: TextAlign.center),
+                                            );
                                 },
                                 isDisabled: true,
                                 onSwipe: _onSwipe,
                                 onUndo: _onUndo,
                               ),
                             ),
-                            IconButton(
-                              onPressed: () {
-                                // 타이머 진행중이면 버튼 disable
-                                if (_isCounting || _isShowing) {
-                                  return;
-                                } else if (currentCardIndex == 2) {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) => const GameOver(
-                                        gameName: 'train',
+                            GestureDetector(
+                                onTap: () {
+                                  // 타이머 진행중이면 버튼 disable
+                                  if (_isCounting || _isShowing) {
+                                    return;
+                                  } else if (currentCardIndex == 2) {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => const GameOver(
+                                          gameName: 'train',
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                } else {
-                                  controller.swipeLeft();
-                                  if (currentCardIndex != 2) {
-                                    setState(() {
-                                      isUndoButtonVisible = false;
-                                    });
+                                    );
+                                  } else {
+                                    controller.swipeLeft();
+                                    if (currentCardIndex != 2) {
+                                      setState(() {
+                                        isUndoButtonVisible = false;
+                                      });
+                                    }
                                   }
-                                }
-                              },
-                              color: Colors.transparent,
-                              icon: const ImageIcon(
-                                AssetImage(
-                                    'assets/images/icon_chevron_right.png'),
-                              ),
-                              iconSize: width * 0.07,
-                            ),
+                                },
+                                child: Image.asset(
+                                    'assets/images/icon_chevron_right.png',
+                                    height: width * 0.07)),
                           ],
                         ),
                       ),
-                      _showFinal
-                          ? SizedBox(
-                              width: width * 0.173,
-                              height: height * 0.085,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    _isAnswered = !_isAnswered;
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: _isAnswered
-                                      ? Colors.white
-                                      : const Color(0xffFF62D3),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12)),
-                                ),
-                                child: Text(
-                                  _isAnswered ? '돌아가기' : '문제보기',
-                                  style: const TextStyle(
-                                    fontFamily: 'DungGeunMo',
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 50,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
-                            )
-                          : SizedBox(
-                              width: width * 0.173, height: height * 0.085),
+                      _isShowing
+                          ? CustomButton(
+                              onPressed: () {
+                                setState(() {
+                                  _isShowing = false;
+                                  _showFinal = true;
+                                  _isAnswered = false;
+                                });
+                              },
+                              width: 320,
+                              text: '게임 시작')
+                          : _showFinal
+                              ? _isAnswered
+                                  ? SizedBox(
+                                      width: width * 0.173,
+                                      height: height * 0.085)
+                                  : CustomButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _isShowing = false;
+                                          _showFinal = true;
+                                          _isAnswered = true;
+                                        });
+                                      },
+                                      width: 320,
+                                      text: '정답 보기')
+                              : CustomButton(
+                                  onPressed: () {
+                                    _startCountdown();
+                                    setState(() {
+                                      _isShowing = true;
+                                      _showFinal = false;
+                                      _isAnswered = false;
+                                    });
+                                  },
+                                  width: 320,
+                                  text: '제시문 보기'),
                       SizedBox(height: height * 0.1)
                     ],
                   ),
@@ -405,5 +383,14 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
       _resetTimer();
     });
     return true;
+  }
+}
+
+class KKButton extends StatelessWidget {
+  const KKButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
