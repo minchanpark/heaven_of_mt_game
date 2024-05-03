@@ -11,6 +11,7 @@ import 'game_page/captain/captain_game_page.dart';
 import 'game_page/choi/choi_game_page.dart';
 import 'game_page/disco/disco_game_page.dart';
 import 'game_page/four/four_game_page.dart';
+import 'game_page/hashtag/hashtag_game_web.dart';
 import 'game_page/movie/movie_game_page.dart';
 import 'game_page/musictitle/category_musictitle.dart';
 import 'game_page/tele/tele_game_page.dart';
@@ -53,6 +54,7 @@ Future<void> main() async {
         '/church_captain': (BuildContext context) => const ChurchCaptainGame(),
         '/church_four': (BuildContext context) => const ChurchFourGame(),
         '/train': (BuildContext context) => const TrainWebGame(),
+        '/hashtag': (BuildContext context) => const HashtagWebGame(),
         '/updown': (BuildContext context) => const UpDownWebGame(),
       },
       navigatorObservers: [
