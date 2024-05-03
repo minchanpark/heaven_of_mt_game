@@ -153,7 +153,6 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                   child: Column(
                     children: [
                       Stack(
-                        // mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Row(children: [
                             IconButton(
@@ -171,7 +170,6 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                               iconSize: width * 0.03,
                             ),
                           ]),
-                          // const Spacer(),
                           Center(
                             child: Text(
                               '${currentCardIndex + 1}/${cards.length}',
@@ -183,7 +181,6 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                               ),
                             ),
                           ),
-                          // const Spacer(),
                           _isShowing
                               ? Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
@@ -384,14 +381,5 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
       _resetTimer();
     });
     return true;
-  }
-}
-
-class KKButton extends StatelessWidget {
-  const KKButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
