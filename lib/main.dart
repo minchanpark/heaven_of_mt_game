@@ -3,6 +3,7 @@ import 'dart:js' as js;
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:heaven_of_mt/game_page/how_much/how_much_game.dart';
 import 'church_game/church_captain.dart';
 import 'church_game/church_disco.dart';
 import 'church_game/church_four.dart';
@@ -21,6 +22,7 @@ import 'game_page/updown/updown_game_page.dart';
 import 'home/home_church.dart';
 import 'home/home.dart';
 import 'game_page/person/person_game_page.dart';
+import 'game_page/size_up/size_up_web_game.dart';
 import 'splash.dart';
 
 Future<void> main() async {
@@ -56,6 +58,8 @@ Future<void> main() async {
         '/train': (BuildContext context) => const TrainWebGame(),
         '/hashtag': (BuildContext context) => const HashtagWebGame(),
         '/updown': (BuildContext context) => const UpDownWebGame(),
+        '/sizeup': (BuildContext context) => const SizeUpWebGame(),
+        '/howmuch': (BuildContext context) => const HowMuchWebGame(),
       },
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),

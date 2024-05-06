@@ -2,6 +2,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:heaven_of_mt/game_page/how_much/how_much_game.dart';
 import 'package:heaven_of_mt/game_page/updown/updown_game_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,6 +18,7 @@ import '../onboarding.dart';
 import '../game_page/person/person_game_page.dart';
 import '../game_page/tele/tele_game_page.dart';
 import '../game_page/telestration/telestration_game_page.dart';
+import '../game_page/size_up/size_up_web_game.dart';
 
 // 게임 이름 목록
 List<String> _gameNames = <String>[
@@ -32,6 +34,8 @@ List<String> _gameNames = <String>[
   '속삭이는 기차',
   '해시태그',
   '업다운',
+  '사이즈업',
+  '하우머치'
 ];
 
 // 게임 설명 목록
@@ -48,6 +52,8 @@ List<Widget> contentList = [
   TrainOnboarding(),
   ChoiOnboarding(),
   UpDownOnboarding(),
+  SizeUpOnboarding(),
+  SizeUpOnboarding()
 ];
 
 // 게임 페이지 묵룩
@@ -64,6 +70,8 @@ List<Widget> pageList = [
   const TrainWebGame(),
   const HashtagWebGame(),
   const UpDownWebGame(),
+  const SizeUpWebGame(),
+  const HowMuchWebGame(),
 ];
 
 class HomeWeb extends StatefulWidget {
@@ -116,6 +124,13 @@ class _HomeWebState extends State<HomeWeb> {
         Navigator.pushNamed(context, '/hashtag');
       case 12:
         Navigator.pushNamed(context, '/updown');
+        break;
+      case 13:
+        Navigator.pushNamed(context, '/sizeup');
+        break;
+
+      case 14:
+        Navigator.pushNamed(context, '/howmuch');
         break;
     }
   }
@@ -289,7 +304,7 @@ class _HomeWebState extends State<HomeWeb> {
                 if (event is RawKeyDownEvent) {
                   // 키보드 아래 화살표
                   if (event.logicalKey == LogicalKeyboardKey.arrowDown) {
-                    if (_selectedGame == 10) {
+                    if (_selectedGame == 13) {
                     } else {
                       setState(() {
                         _selectedGame = (_selectedGame + 1) % _gameNames.length;

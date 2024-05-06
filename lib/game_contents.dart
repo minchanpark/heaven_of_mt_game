@@ -26,6 +26,20 @@ class UpDownGameContents {
   });
 }
 
+class SizeUpGameContents {
+  String name;
+  String index;
+  String answer;
+  String explain;
+
+  SizeUpGameContents({
+    this.name = '',
+    required this.index,
+    this.answer = '',
+    required this.explain,
+  });
+}
+
 final List<GameContents> person = [
   GameContents(name: 'assets/person/강동원.WEBP', index: '1'),
   GameContents(name: 'assets/person/류승범.WEBP', index: '2'),
@@ -1249,4 +1263,22 @@ final List<GameContents> hashtag = [
   GameContents(name: '썸', index: '2'),
   GameContents(name: '엄마', index: '3'),
   GameContents(name: '한동대', index: '4'),
+];
+
+final List<SizeUpGameContents> sizeup = [
+  SizeUpGameContents(
+      name: 'assets/images/sizeup_card1.png',
+      answer: '9.5cm',
+      index: '1',
+      explain: '피어나다 카드의 세로 길이는?'),
+  SizeUpGameContents(
+      name: 'assets/images/sizeup_card2.png',
+      answer: '27cm',
+      index: '2',
+      explain: '초코파이 상자의 가로 길이는?'),
+  SizeUpGameContents(
+      name: 'assets/images/sizeup_card3.png',
+      answer: '사회자가 지정한 사물을 맞춰보세요!',
+      index: '3',
+      explain: '사회자가 직접 측정합니다!'),
 ];

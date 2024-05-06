@@ -81,6 +81,9 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
       } else if (userGuess < targetNumber) {
         displayValueMax = inputValue;
         explain = 'Up!';
+      } else if (userGuess == targetNumber) {
+        //displayValueMax = inputValue;
+        explain = '정답입니다!';
       } else {
         displayValueMin = '  ';
       }
@@ -90,6 +93,7 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
 
     setState(() {
       // UI 업데이트
+      _updownTextController.clear();
     });
   }
 
@@ -98,8 +102,8 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
       return Text(
         text,
         style: const TextStyle(
-          color: Color(0xff00F0FF),
-          fontSize: 96,
+          color: Color(0xffFF002E),
+          fontSize: 90,
           fontWeight: FontWeight.w400,
           fontFamily: 'DungGeunMo',
         ),
@@ -109,7 +113,17 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
         text,
         style: const TextStyle(
           color: Color(0xff00F0FF),
-          fontSize: 96,
+          fontSize: 90,
+          fontWeight: FontWeight.w400,
+          fontFamily: 'DungGeunMo',
+        ),
+      );
+    } else if (text == '정답입니다!') {
+      return Text(
+        text,
+        style: const TextStyle(
+          color: Color(0xffFFFBFE),
+          fontSize: 64,
           fontWeight: FontWeight.w400,
           fontFamily: 'DungGeunMo',
         ),
@@ -134,9 +148,12 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
     return Column(
       children: [
         _updateText(explain),
-        (explain == 'Up!' || explain == 'Down!')
-            ? SizedBox(height: 53)
-            : SizedBox(height: 106),
+        if (explain == 'Up!' || explain == 'Down!')
+          SizedBox(height: 5)
+        else if (explain == '정답입니다!')
+          SizedBox(height: 40)
+        else
+          SizedBox(height: 79.31),
         Stack(
           alignment: Alignment.center,
           children: [
