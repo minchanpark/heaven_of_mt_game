@@ -1243,3 +1243,10 @@ final List<GameContents> petit = [
   GameContents(name: 'ㄷ', index: '4'),
   GameContents(name: 'ㅁ', index: '5'),
 ];
+
+final List<GameContents> hashtag = [
+  GameContents(name: '재수강', index: '1'),
+  GameContents(name: '썸', index: '2'),
+  GameContents(name: '엄마', index: '3'),
+  GameContents(name: '한동대', index: '4'),
+];
