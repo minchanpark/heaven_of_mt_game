@@ -2,8 +2,11 @@
 
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
+import 'package:heaven_of_mt/game_page/hashtag/hashtag_game_web.dart';
+import 'package:heaven_of_mt/game_page/size_up/size_up_game.dart';
 import 'package:heaven_of_mt/game_page/train/train_game_web.dart';
 import 'package:heaven_of_mt/game_page/updown/updown_game_page.dart';
+import 'package:heaven_of_mt/game_page/how_much/how_much_game.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../game_page/captain/captain_game_page.dart';
@@ -183,7 +186,23 @@ class _GameOverState extends State<GameOver> {
                                             builder: (context) =>
                                                 const UpDownWebGame()));
                                     break;
-
+                                  case 'hash':
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const HashtagWebGame()));
+                                    break;
+                                  case 'howmuch':
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const HowMuchWebGame()));
+                                  case 'sizeup':
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const SizeupGamePage()));
+                                    break;
                                   default:
                                     break;
                                 }

@@ -1,11 +1,8 @@
-import 'dart:async';
-
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import '../../card/card.dart';
-import '../../card/hashtag_card.dart';
 import '../../game_contents.dart';
 import '../../gameover/gameover_web.dart';
 import '../../ready.dart';
@@ -98,7 +95,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                       } else if (event.logicalKey ==
                           LogicalKeyboardKey.arrowRight) {
                         _isAnswered = false;
-                        if (currentCardIndex == 2) {
+                        if (currentCardIndex == 3) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => const GameOver(
@@ -108,7 +105,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                           );
                         } else {
                           controller.swipeLeft();
-                          if (currentCardIndex != 2) {
+                          if (currentCardIndex != 3) {
                             setState(() {
                               isUndoButtonVisible = false;
                             });
@@ -191,17 +188,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                                 ) {
                                   currentCardIndex = index;
                                   return !_isAnswered
-                                      ? Stack(children: [
-                                          Positioned(
-                                            left: 260,
-                                            top: 205,
-                                              child: Image.asset(
-                                                  'assets/images/hashtag.png',
-                                                  width: 80,
-                                                  height: 80)),
-                                          cards[index]
-                                        ])
-                                      : const Center(
+                                      ? const Center(
                                           child: Text("사회자에게 제시어를 확인해 주세요!",
                                               style: TextStyle(
                                                 fontFamily: 'DungGeunMo',
@@ -209,7 +196,18 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                                                 color: Colors.white,
                                               ),
                                               textAlign: TextAlign.center),
-                                        );
+                                        )
+                                      : Stack(children: [
+                                          Positioned(
+                                            left: width * (180 / 1283),
+                                            top: height * (180 / 834),
+                                            child: Image.asset(
+                                                'assets/images/hashtag.png',
+                                                width: 80,
+                                                height: 80),
+                                          ),
+                                          cards[index]
+                                        ]);
                                 },
                                 isDisabled: true,
                                 onSwipe: _onSwipe,
@@ -218,7 +216,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                             ),
                             GestureDetector(
                                 onTap: () {
-                                  if (currentCardIndex == 2) {
+                                  if (currentCardIndex == 3) {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) => const GameOver(
@@ -228,7 +226,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                                     );
                                   } else {
                                     controller.swipeLeft();
-                                    if (currentCardIndex != 2) {
+                                    if (currentCardIndex != 3) {
                                       setState(() {
                                         isUndoButtonVisible = false;
                                       });
@@ -243,8 +241,8 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                         ),
                       ),
                       SizedBox(
-                        width: 260,
-                        height: 71,
+                        width: width * (260 / 1283),
+                        height: height * (71 / 834),
                         child: ElevatedButton(
                           onPressed: () {
                             setState(() {
@@ -258,10 +256,10 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                           ),
                           child: Text(
                             _isAnswered ? '정답보기' : '문제가리기',
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontFamily: 'DungGeunMo',
                               fontWeight: FontWeight.w400,
-                              fontSize: 42,
+                              fontSize: width * (42 / 1283),
                               color: Colors.black,
                             ),
                           ),

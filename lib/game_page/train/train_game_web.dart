@@ -186,8 +186,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Image.asset('assets/images/hourglass.png',
-                                        width: 28.9,
-                                        height: 30.6),
+                                        width: 28.9, height: 30.6),
                                     const SizedBox(width: 13),
                                     SizedBox(
                                       width: 80,
