@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../game_page/captain/captain_game_page.dart';
 import '../game_page/disco/disco_game_page.dart';
+import '../game_page/hashtag/hashtag_game_web.dart';
 import '../game_page/movie/movie_game_page.dart';
 import '../game_page/musictitle/category_musictitle.dart';
 import '../game_page/choi/choi_game_page.dart';
@@ -29,6 +30,7 @@ List<String> _gameNames = <String>[
   '노래초성퀴즈',
   '명대사퀴즈',
   '속삭이는 기차',
+  '해시태그',
   '업다운',
 ];
 
@@ -44,8 +46,8 @@ List<Widget> contentList = [
   MusicOnboarding(),
   FamousLineOnboarding(),
   TrainOnboarding(),
-  UpDownOnboarding(),
   ChoiOnboarding(),
+  UpDownOnboarding(),
 ];
 
 // 게임 페이지 묵룩
@@ -60,6 +62,7 @@ List<Widget> pageList = [
   const CategoryPage(),
   const MovieGamePage(),
   const TrainWebGame(),
+  const HashtagWebGame(),
   const UpDownWebGame(),
 ];
 
@@ -110,6 +113,8 @@ class _HomeWebState extends State<HomeWeb> {
         Navigator.pushNamed(context, '/train');
         break;
       case 11:
+        Navigator.pushNamed(context, '/hashtag');
+      case 12:
         Navigator.pushNamed(context, '/updown');
         break;
     }

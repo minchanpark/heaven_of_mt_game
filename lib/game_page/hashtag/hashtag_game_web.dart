@@ -4,33 +4,28 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import '../../button_widget.dart';
-import '../../game_contents.dart';
 import '../../card/card.dart';
+import '../../card/hashtag_card.dart';
+import '../../game_contents.dart';
 import '../../gameover/gameover_web.dart';
 import '../../ready.dart';
 
-class TrainWebGame extends StatefulWidget {
-  const TrainWebGame({
+class HashtagWebGame extends StatefulWidget {
+  const HashtagWebGame({
     super.key,
   });
 
   @override
-  State<TrainWebGame> createState() => _TrainWebGamePageState();
+  State<HashtagWebGame> createState() => _HashtagWebGamePageState();
 }
 
-class _TrainWebGamePageState extends State<TrainWebGame> {
+class _HashtagWebGamePageState extends State<HashtagWebGame> {
   FocusNode focusNode = FocusNode();
   int currentCardIndex = 0; // 현재 카드의 인덱스를 저장할 변수
   final CardSwiperController controller = CardSwiperController();
   List<GameCard> cards = []; // cards 변수를 초기화
-  List<GameContents> randomTrain = [];
-  bool _isCounting = false; // 타이머 진행 여부
-  bool _isShowing = false; // 문제 보여짐 여부
-  bool _showFinal = false; // 문제 타이머 종료 여부
+  List<GameContents> randomHash = [];
   bool _isAnswered = false;
-  Timer countdownTimer = Timer(Duration.zero, () {});
-  int _count = 10;
   @override
   void initState() {
     super.initState();
@@ -39,8 +34,8 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
 
     // widget.id 값에 따라 cards 변수에 값을 할당
 
-    final trainIndices = List<int>.generate(train.length, (i) => i);
-    randomTrain = trainIndices.map((index) => train[index]).toList();
+    final hashIndices = List<int>.generate(hashtag.length, (i) => i);
+    randomHash = hashIndices.map((index) => hashtag[index]).toList();
   }
 
   bool isUndoButtonVisible = true;
@@ -51,45 +46,13 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
     super.dispose();
   }
 
-  // 문제가 보여진 후 10초 타이머 함수
-  void _startCountdown() {
-    countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (_count > 1) {
-        setState(() {
-          _count--;
-        });
-        debugPrint(
-            "_isCounting: $_isCounting, _isShowing: $_isShowing, _showFinal: $_showFinal");
-      } else {
-        timer.cancel();
-        setState(() {
-          _isShowing = false;
-          _showFinal = true;
-        });
-        debugPrint(
-            "_isCounting: $_isCounting, _isShowing: $_isShowing, _showFinal: $_showFinal");
-      }
-    });
-  }
-
-  // 타이머 초기화
-  void _resetTimer() {
-    setState(() {
-      countdownTimer.cancel();
-      _isCounting = false;
-      _isShowing = false;
-      _showFinal = false;
-      _count = 10;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    cards = randomTrain
+    cards = randomHash
         .map((gameContents) =>
-            GameCard(gameContents: gameContents, fontSize: width * 0.045))
+            GameCard(gameContents: gameContents, fontSize: 120))
         .toList();
     if (width < 1126 || height < 627) return const ReadyPage();
     return Scaffold(
@@ -116,14 +79,17 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                   focusNode: focusNode,
                   onKey: (RawKeyEvent event) {
                     if (event is RawKeyDownEvent) {
-                      if (_isCounting || _isShowing) {
-                        return;
-                      } else if (event.logicalKey ==
-                          LogicalKeyboardKey.escape) {
+                      if (event.logicalKey == LogicalKeyboardKey.escape) {
                         Navigator.of(context).pop();
+                      } else if (event.logicalKey == LogicalKeyboardKey.space ||
+                          event.logicalKey == LogicalKeyboardKey.enter) {
+                        setState(() {
+                          _isAnswered = !_isAnswered;
+                        });
                       } else if (event.logicalKey ==
                           LogicalKeyboardKey.arrowLeft) {
                         controller.undo();
+                        _isAnswered = false;
                         if (currentCardIndex == 0) {
                           setState(() {
                             isUndoButtonVisible = true;
@@ -131,11 +97,12 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                         }
                       } else if (event.logicalKey ==
                           LogicalKeyboardKey.arrowRight) {
+                        _isAnswered = false;
                         if (currentCardIndex == 2) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => const GameOver(
-                                gameName: 'train',
+                                gameName: 'hash',
                               ),
                             ),
                           );
@@ -157,10 +124,6 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                           Row(children: [
                             IconButton(
                               onPressed: () {
-                                // 타이머 진행중이면 버튼 disable
-                                if (_isCounting || _isShowing) {
-                                  return;
-                                }
                                 Navigator.of(context)
                                     .pushReplacementNamed('/home');
                               },
@@ -181,26 +144,6 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                               ),
                             ),
                           ),
-                          _isShowing
-                              ? Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Image.asset('assets/images/hourglass.png',
-                                        width: 28.9,
-                                        height: 30.6),
-                                    const SizedBox(width: 13),
-                                    SizedBox(
-                                      width: 80,
-                                      child: Text("$_count",
-                                          style: const TextStyle(
-                                            fontFamily: 'DungGeunMo',
-                                            fontSize: 70,
-                                            color: Colors.white,
-                                          )),
-                                    ),
-                                  ],
-                                )
-                              : const SizedBox(width: 113, height: 30)
                         ],
                       ),
                       Expanded(
@@ -212,6 +155,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                 ? GestureDetector(
                                     onTap: () {
                                       controller.undo();
+                                      _isAnswered = false;
                                     },
                                     child: Image.asset(
                                       'assets/images/icon_chevron_left.png',
@@ -220,10 +164,8 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                 : GestureDetector(
                                     onTap: () {
                                       controller.undo();
-                                      // 타이머 진행중이면 버튼 disable
-                                      if (_isCounting || _isShowing) {
-                                        return;
-                                      } else if (currentCardIndex == 0) {
+                                      _isAnswered = false;
+                                      if (currentCardIndex == 0) {
                                         setState(() {
                                           isUndoButtonVisible = true;
                                         });
@@ -248,33 +190,26 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                   verticalThresholdPercentage,
                                 ) {
                                   currentCardIndex = index;
-                                  return _isShowing
-                                      // 문제 표시
-                                      ? cards[index]
-                                      : _showFinal
-                                          // 문제 표시 후 10초가 흘렀을 때
-                                          ? _isAnswered
-                                              ? cards[index]
-                                              : const Center(
-                                                  child: Text("문장은 무엇일까요?",
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'DungGeunMo',
-                                                        fontSize: 80,
-                                                        color: Colors.white,
-                                                      )),
-                                                )
-                                          // 타이머 시작 전
-                                          : const Center(
-                                              child: Text(
-                                                  "각 조의 첫 번째 주자는\n사회자에게 제시문을 확인해주세요!",
-                                                  style: TextStyle(
-                                                    fontFamily: 'DungGeunMo',
-                                                    fontSize: 54,
-                                                    color: Colors.white,
-                                                  ),
-                                                  textAlign: TextAlign.center),
-                                            );
+                                  return !_isAnswered
+                                      ? Stack(children: [
+                                          Positioned(
+                                            left: 260,
+                                            top: 205,
+                                              child: Image.asset(
+                                                  'assets/images/hashtag.png',
+                                                  width: 80,
+                                                  height: 80)),
+                                          cards[index]
+                                        ])
+                                      : const Center(
+                                          child: Text("사회자에게 제시어를 확인해 주세요!",
+                                              style: TextStyle(
+                                                fontFamily: 'DungGeunMo',
+                                                fontSize: 54,
+                                                color: Colors.white,
+                                              ),
+                                              textAlign: TextAlign.center),
+                                        );
                                 },
                                 isDisabled: true,
                                 onSwipe: _onSwipe,
@@ -283,14 +218,11 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                             ),
                             GestureDetector(
                                 onTap: () {
-                                  // 타이머 진행중이면 버튼 disable
-                                  if (_isCounting || _isShowing) {
-                                    return;
-                                  } else if (currentCardIndex == 2) {
+                                  if (currentCardIndex == 2) {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) => const GameOver(
-                                          gameName: 'train',
+                                          gameName: 'hash',
                                         ),
                                       ),
                                     );
@@ -302,6 +234,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                       });
                                     }
                                   }
+                                  _isAnswered = false;
                                 },
                                 child: Image.asset(
                                     'assets/images/icon_chevron_right.png',
@@ -309,43 +242,31 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                           ],
                         ),
                       ),
-                      _isShowing
-                          ? CustomButton(
-                              onPressed: () {
-                                setState(() {
-                                  _isShowing = false;
-                                  _showFinal = true;
-                                  _isAnswered = false;
-                                });
-                              },
-                              width: 320,
-                              text: '게임 시작')
-                          : _showFinal
-                              ? _isAnswered
-                                  ? SizedBox(
-                                      width: width * 0.173,
-                                      height: height * 0.085)
-                                  : CustomButton(
-                                      onPressed: () {
-                                        setState(() {
-                                          _isShowing = false;
-                                          _showFinal = true;
-                                          _isAnswered = true;
-                                        });
-                                      },
-                                      width: 320,
-                                      text: '정답 보기')
-                              : CustomButton(
-                                  onPressed: () {
-                                    _startCountdown();
-                                    setState(() {
-                                      _isShowing = true;
-                                      _showFinal = false;
-                                      _isAnswered = false;
-                                    });
-                                  },
-                                  width: 320,
-                                  text: '제시문 보기'),
+                      SizedBox(
+                        width: 260,
+                        height: 71,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              _isAnswered = !_isAnswered;
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xffFFB94F),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12)),
+                          ),
+                          child: Text(
+                            _isAnswered ? '정답보기' : '문제가리기',
+                            style: const TextStyle(
+                              fontFamily: 'DungGeunMo',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 42,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
                       SizedBox(height: height * 0.1)
                     ],
                   ),
@@ -365,7 +286,6 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
   ) {
     setState(() {
       currentCardIndex = currentIndex ?? 0; // currentIndex가 null인 경우 기본값 0으로 설정
-      _resetTimer();
     });
 
     return true;
@@ -378,7 +298,6 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
   ) {
     setState(() {
       currentCardIndex = currentIndex; // currentIndex가 null인 경우 기본값 0으로 설정
-      _resetTimer();
     });
     return true;
   }
