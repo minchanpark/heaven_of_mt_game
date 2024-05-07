@@ -123,7 +123,7 @@ class _GameOverState extends State<GameOver> {
                                 Navigator.popUntil(
                                     context, ModalRoute.withName('/home'));
                                 switch (widget.gameName) {
-                                  case 'person':
+                                  /*case 'person':
                                     Navigator.pushNamed(context, '/person');
                                     break;
                                   case 'disco':
@@ -173,7 +173,7 @@ class _GameOverState extends State<GameOver> {
                                         MaterialPageRoute(
                                             builder: (context) =>
                                                 const MovieGamePage()));
-                                    break;
+                                    break;*/
                                   case 'train':
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
@@ -222,11 +222,10 @@ class _GameOverState extends State<GameOver> {
                                       width: 32,
                                       height: 52,
                                       child: Image.asset(
-                                          'assets/images/gameover.png')),
+                                          'assets/images/gameover_ㅋㅋ.png')),
                                   const SizedBox(width: 10),
                                   Container(
-                                    color:
-                                        const Color.fromRGBO(255, 98, 211, 1),
+                                    color: const Color(0xffFFB202),
                                     child: const Padding(
                                       padding: EdgeInsets.only(bottom: 5),
                                       child: Text(
@@ -315,11 +314,10 @@ class _GameOverState extends State<GameOver> {
                                       width: 29,
                                       height: 51,
                                       child: Image.asset(
-                                          'assets/images/gameover.png')),
+                                          'assets/images/gameover_ㅋㅋ.png')),
                                   const SizedBox(width: 10),
                                   Container(
-                                    color:
-                                        const Color.fromRGBO(255, 98, 211, 1),
+                                    color: const Color(0xffFFB202),
                                     child: const Padding(
                                       padding: EdgeInsets.only(bottom: 5),
                                       child: Text(

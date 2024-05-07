@@ -22,7 +22,7 @@ import '../game_page/size_up/size_up_web_game.dart';
 
 // 게임 이름 목록
 List<String> _gameNames = <String>[
-  '인물퀴즈',
+  /*'인물퀴즈',
   '디스코',
   '대표게임',
   '네글자퀴즈',
@@ -30,7 +30,7 @@ List<String> _gameNames = <String>[
   '텔레스트레이션',
   '액션초성게임',
   '노래초성퀴즈',
-  '명대사퀴즈',
+  '명대사퀴즈',*/
   '속삭이는 기차',
   '해시태그',
   '업다운',
@@ -40,7 +40,7 @@ List<String> _gameNames = <String>[
 
 // 게임 설명 목록
 List<Widget> contentList = [
-  PersonOnboarding(),
+  /* PersonOnboarding(),
   DiscoOnboarding(),
   CaptainOnboarding(),
   FourOnboarding(),
@@ -48,7 +48,7 @@ List<Widget> contentList = [
   TeleStrationOnboarding(),
   ChoiOnboarding(),
   MusicOnboarding(),
-  FamousLineOnboarding(),
+  FamousLineOnboarding(),*/
   TrainOnboarding(),
   ChoiOnboarding(),
   UpDownOnboarding(),
@@ -58,7 +58,7 @@ List<Widget> contentList = [
 
 // 게임 페이지 묵룩
 List<Widget> pageList = [
-  const PersonGamePage(),
+  /*const PersonGamePage(),
   const DiscoGamePage(),
   const CaptainGamePage(),
   const FourGamePage(),
@@ -66,7 +66,7 @@ List<Widget> pageList = [
   const TelestrationGamePage(),
   const ChoiGamePage(),
   const CategoryPage(),
-  const MovieGamePage(),
+  const MovieGamePage(),*/
   const TrainWebGame(),
   const HashtagWebGame(),
   const UpDownWebGame(),
@@ -90,7 +90,7 @@ class _HomeWebState extends State<HomeWeb> {
   // 게임 선택 로직
   void selectGame() {
     switch (_selectedGame + 1) {
-      case 1:
+      /*case 1:
         Navigator.pushNamed(context, '/person');
         break;
       case 2:
@@ -116,20 +116,20 @@ class _HomeWebState extends State<HomeWeb> {
         break;
       case 9:
         Navigator.pushNamed(context, '/movie');
-        break;
-      case 10:
+        break;*/
+      case 1:
         Navigator.pushNamed(context, '/train');
         break;
-      case 11:
+      case 2:
         Navigator.pushNamed(context, '/hashtag');
-      case 12:
+      case 3:
         Navigator.pushNamed(context, '/updown');
         break;
-      case 13:
+      case 4:
         Navigator.pushNamed(context, '/sizeup');
         break;
 
-      case 14:
+      case 5:
         Navigator.pushNamed(context, '/howmuch');
         break;
     }
@@ -173,77 +173,27 @@ class _HomeWebState extends State<HomeWeb> {
                   Navigator.of(context).pushReplacementNamed('/splash');
                 },
                 child: Container(
-                    margin: EdgeInsets.only(
-                        left: (fourThreeRate == 0.75)
-                            ? width * 0.094
-                            : width * 0.075),
-                    child: Image.asset('assets/images/title.png',
-                        width: (fourThreeRate == 0.75)
-                            ? width * 0.168
-                            : width * 0.179,
-                        height: (fourThreeRate == 0.75)
-                            ? height * 0.038
-                            : height * 0.047)),
+                  margin: EdgeInsets.only(left: width * 0.075),
+                  child: Row(
+                    children: [
+                      Image.asset('assets/images/title.png',
+                          width: width * 0.179, height: height * 0.047),
+                      Image.asset(
+                        'assets/images/x.png',
+                        width: width * (15 / 1283),
+                        height: height * (29 / 834),
+                      ),
+                      Image.asset(
+                        'assets/images/ㅋㅋ.png',
+                        width: width * (75 / 1283),
+                        height: height * (75 / 834),
+                      ),
+                    ],
+                  ),
+                ),
               ),
               const Spacer(),
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushReplacementNamed('/church');
-                    },
-                    child: MouseRegion(
-                      onHover: (event) {
-                        setState(() {
-                          _isHovering = true;
-                        });
-                      },
-                      onExit: (event) {
-                        setState(() {
-                          _isHovering = false;
-                        });
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              _isHovering
-                                  ? const Color(0xff2AFF73)
-                                  : const Color(0xff01DF4C),
-                              _isHovering
-                                  ? const Color(0xffFFF4A0)
-                                  : const Color(0xffFFEB50)
-                            ],
-                          ),
-                        ),
-                        child: Text(
-                          "교회 버전 바로가기",
-                          style: TextStyle(
-                            fontFamily: 'DungGeunMo',
-                            color: Colors.black,
-                            fontSize: width * 0.0125,
-                            //fontsize 어떻게 이렇게 한 건지 물어보고 하기
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: -20,
-                    left: -35,
-                    child: Image.asset(
-                      "assets/images/beta.png",
-                      width: 74,
-                      height: 40,
-                    ),
-                  ),
-                ],
-              ),
+
               SizedBox(
                   width:
                       (fourThreeRate <= 0.75) ? width * 0.025 : width * 0.015),
@@ -294,7 +244,6 @@ class _HomeWebState extends State<HomeWeb> {
               SizedBox(width: width * 0.075)
             ],
           ),
-          SizedBox(height: height * 0.032),
           Container(
             margin: EdgeInsets.only(left: width * 0.075),
             // 키보드 interaction
@@ -366,19 +315,21 @@ class _HomeWebState extends State<HomeWeb> {
                         return Center(
                             child: isSelected
                                 // 선택 되어있을 때 보여줄 ui
+                                // 여기서 크크 게임이 선택 되었을 때만 색이 노란 색으로 바뀌도록 하기
+                                // 아니면 엠겜천 게임들은 싹 빼고 크크 게임만 남기기
                                 ? GestureDetector(
                                     onTap: selectGame,
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Image.asset("assets/images/left.png",
+                                        Image.asset("assets/images/left_kk.png",
                                             width: 24, height: 42),
                                         const SizedBox(width: 18),
                                         Container(
                                           width: width * 0.265,
                                           decoration: const BoxDecoration(
-                                              color: Color(0xFFFF62D3)),
+                                              color: Color(0xFFFFB202)),
                                           child: Center(
                                             child: Text(
                                               _gameNames[index],
@@ -391,8 +342,10 @@ class _HomeWebState extends State<HomeWeb> {
                                           ),
                                         ),
                                         const SizedBox(width: 18),
-                                        Image.asset("assets/images/right.png",
-                                            width: 24, height: 42)
+                                        Image.asset(
+                                            "assets/images/right_kk.png",
+                                            width: 24,
+                                            height: 42)
                                       ],
                                     ),
                                   )

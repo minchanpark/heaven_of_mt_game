@@ -47,11 +47,21 @@ class _SplashPageState extends State<SplashPage> {
         Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           SizedBox(height: height * 0.18),
           Container(
-              margin:
-                  EdgeInsets.only(left: width * 0.125, right: width * 0.125),
-              child: Image.asset('assets/images/title.png',
-                  width: width * 0.75, height: height * 0.19)),
-          SizedBox(height: height * 0.35),
+            margin: EdgeInsets.only(left: width * 0.125, right: width * 0.125),
+            child: Column(
+              children: [
+                Image.asset('assets/images/title.png',
+                    width: width * 0.75, height: height * 0.19),
+                SizedBox(height: height * (12 / 834)),
+                Image.asset('assets/images/with.png',
+                    width: width * (128 / 1283), height: height * (64 / 834)),
+                SizedBox(height: height * (12 / 834)),
+                Image.asset('assets/images/zz.png',
+                    width: width * (158 / 1283), height: height * (65 / 834)),
+              ],
+            ),
+          ),
+          SizedBox(height: height * (174 / 834)),
           RawKeyboardListener(
             focusNode: focusNode,
             onKey: (RawKeyEvent event) {
