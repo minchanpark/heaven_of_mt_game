@@ -53,23 +53,25 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
 
   // 문제가 보여진 후 10초 타이머 함수
   void _startCountdown() {
-    countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (_count > 1) {
-        setState(() {
-          _count--;
-        });
-        debugPrint(
-            "_isCounting: $_isCounting, _isShowing: $_isShowing, _showFinal: $_showFinal");
-      } else {
-        timer.cancel();
-        setState(() {
-          _isShowing = false;
-          _showFinal = true;
-        });
-        debugPrint(
-            "_isCounting: $_isCounting, _isShowing: $_isShowing, _showFinal: $_showFinal");
-      }
-    });
+    if (!_isShowing) {
+      countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+        if (_count > 1) {
+          setState(() {
+            _count--;
+          });
+          debugPrint(
+              "_isCounting: $_isCounting, _isShowing: $_isShowing, _showFinal: $_showFinal");
+        } else {
+          timer.cancel();
+          setState(() {
+            _isShowing = false;
+            _showFinal = true;
+          });
+          debugPrint(
+              "_isCounting: $_isCounting, _isShowing: $_isShowing, _showFinal: $_showFinal");
+        }
+      });
+    }
   }
 
   // 타이머 초기화
@@ -153,6 +155,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                   child: Column(
                     children: [
                       Stack(
+                        alignment: Alignment.topCenter,
                         children: [
                           Row(children: [
                             IconButton(
@@ -184,22 +187,20 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                           _isShowing
                               ? Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Image.asset('assets/images/hourglass.png',
                                         width: 28.9, height: 30.6),
                                     const SizedBox(width: 13),
-                                    SizedBox(
-                                      width: 80,
-                                      child: Text("$_count",
-                                          style: const TextStyle(
-                                            fontFamily: 'DungGeunMo',
-                                            fontSize: 70,
-                                            color: Colors.white,
-                                          )),
-                                    ),
+                                    Text("$_count",
+                                        style: const TextStyle(
+                                          fontFamily: 'DungGeunMo',
+                                          fontSize: 70,
+                                          color: Colors.white,
+                                        )),
                                   ],
                                 )
-                              : const SizedBox(width: 113, height: 30)
+                              : const Text(' ', style: TextStyle(fontSize: 70)) // 이렇게 해도 되나 싶은...
                         ],
                       ),
                       Expanded(
