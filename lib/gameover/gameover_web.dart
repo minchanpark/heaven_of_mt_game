@@ -123,7 +123,7 @@ class _GameOverState extends State<GameOver> {
                                 Navigator.popUntil(
                                     context, ModalRoute.withName('/home'));
                                 switch (widget.gameName) {
-                                  /*case 'person':
+                                  case 'person':
                                     Navigator.pushNamed(context, '/person');
                                     break;
                                   case 'disco':
@@ -173,7 +173,7 @@ class _GameOverState extends State<GameOver> {
                                         MaterialPageRoute(
                                             builder: (context) =>
                                                 const MovieGamePage()));
-                                    break;*/
+                                    break;
                                   case 'train':
                                     Navigator.of(context).push(
                                         MaterialPageRoute(

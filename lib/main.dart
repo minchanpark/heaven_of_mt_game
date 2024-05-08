@@ -2,6 +2,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:heaven_of_mt/game_page/how_much/how_much_game.dart';
+import 'package:heaven_of_mt/onboarding/updown_onboarding.dart';
 import 'church_game/church_captain.dart';
 import 'church_game/church_disco.dart';
 import 'church_game/church_four.dart';
@@ -16,6 +17,7 @@ import 'game_page/musictitle/category_musictitle.dart';
 import 'game_page/tele/tele_game_page.dart';
 import 'game_page/telestration/telestration_game_page.dart';
 import 'game_page/train/train_game_web.dart';
+import 'game_page/updown/updown_game.dart';
 import 'game_page/updown/updown_game_page.dart';
 import 'home/home_church.dart';
 import 'home/home.dart';
@@ -55,7 +57,8 @@ Future<void> main() async {
         '/church_four': (BuildContext context) => const ChurchFourGame(),
         '/train': (BuildContext context) => const TrainWebGame(),
         '/hashtag': (BuildContext context) => const HashtagWebGame(),
-        '/updown': (BuildContext context) => const UpDownWebGame(),
+        '/updown': (BuildContext context) => const UpDownOnboardingPage(),
+        '/updowngame': (BuildContext context) => const UpdownGamePage(),
         '/sizeup': (BuildContext context) => const SizeUpWebGame(),
         '/howmuch': (BuildContext context) => const HowMuchWebGame(),
       },
