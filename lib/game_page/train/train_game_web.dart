@@ -155,7 +155,6 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                   child: Column(
                     children: [
                       Stack(
-                        alignment: Alignment.topCenter,
                         children: [
                           Row(children: [
                             IconButton(
