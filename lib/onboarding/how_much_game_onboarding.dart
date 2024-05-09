@@ -3,15 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class UpDownOnboardingPage extends StatefulWidget {
-  const UpDownOnboardingPage({
-    super.key,
-  });
+class HowMuchGameOnboarding extends StatefulWidget {
+  const HowMuchGameOnboarding({super.key});
   @override
-  State<UpDownOnboardingPage> createState() => _UpDownOnboardingPageState();
+  State<HowMuchGameOnboarding> createState() => _HowMuchGameOnboardingState();
 }
 
-class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
+class _HowMuchGameOnboardingState extends State<HowMuchGameOnboarding> {
   bool _isVisible = true;
   FocusNode focusNode = FocusNode();
   @override
@@ -36,7 +34,7 @@ class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
             ),
           ),
         ),
-        Container(
+        Padding(
           padding: EdgeInsets.only(
               left: width * (98 / 1283), top: height * (65 / 834)),
           child: RawKeyboardListener(
@@ -70,13 +68,14 @@ class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
                   margin: EdgeInsets.only(top: height * (126 / 834)),
                   decoration: const BoxDecoration(color: Color(0xffFFB202)),
                   child: Text(
-                    '업다운',
+                    '마트게임',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: const Color(0xFF0E193E),
-                        fontFamily: 'DungGeunMo',
-                        fontSize: width * (57 / 1283),
-                        fontWeight: FontWeight.w400),
+                      color: const Color(0xFF0E193E),
+                      fontFamily: 'DungGeunMo',
+                      fontSize: width * (57 / 1283),
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
               ],
@@ -87,7 +86,7 @@ class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '권장인원: ∞',
+                  '권장인원: 5-6명',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: const Color(0xFFD1D1D1),
@@ -124,7 +123,7 @@ class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
-                      'PPT에 제시된 숫자가 무엇인지 생각해 주세요.',
+                      '진열대 위에 놓인 상품과 가격을 암기해 주세요.',
                       style: TextStyle(
                           color: const Color(0xFFFFFFFF),
                           fontFamily: 'DungGeunMo',
@@ -133,6 +132,7 @@ class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
                     ),
                   ],
                 ),
+                SizedBox(height: height * (10 / 834)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,7 +147,7 @@ class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
-                      '숫자를 생각해서 이야기 해주세요.',
+                      '구매해야 할 상품을 확인해 주세요.',
                       style: TextStyle(
                           color: const Color(0xFFFFFFFF),
                           fontFamily: 'DungGeunMo',
@@ -156,6 +156,7 @@ class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
                     ),
                   ],
                 ),
+                SizedBox(height: height * (10 / 834)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,29 +170,17 @@ class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
                           fontSize: width * (40 / 1283),
                           fontWeight: FontWeight.w400),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'MC는 MC가 생각한 숫자보다 작으면 ‘UP’,',
-                          style: TextStyle(
-                              color: const Color(0xFFFFFFFF),
-                              fontFamily: 'DungGeunMo',
-                              fontSize: width * (40 / 1283),
-                              fontWeight: FontWeight.w400),
-                        ),
-                        Text(
-                          '생각한 숫자보다 크면 ‘DOWN’을 외쳐주세요.',
-                          style: TextStyle(
-                              color: const Color(0xFFFFFFFF),
-                              fontFamily: 'DungGeunMo',
-                              fontSize: width * (40 / 1283),
-                              fontWeight: FontWeight.w400),
-                        ),
-                      ],
+                    Text(
+                      '구매할 상품에 대한 가격의 총합계를 적어주세요.',
+                      style: TextStyle(
+                          color: const Color(0xFFFFFFFF),
+                          fontFamily: 'DungGeunMo',
+                          fontSize: width * (40 / 1283),
+                          fontWeight: FontWeight.w400),
                     ),
                   ],
                 ),
+                SizedBox(height: height * (10 / 834)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,7 +195,7 @@ class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
-                      'MC가 생각한 숫자를 많이 맞추는 팀이 승리해요.',
+                      '최종 가격에 가장 근접하게 맞추는 팀이 승리해요.',
                       style: TextStyle(
                           color: const Color(0xFFFFFFFF),
                           fontFamily: 'DungGeunMo',
@@ -227,7 +216,7 @@ class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
               if (event is RawKeyDownEvent) {
                 if (event.logicalKey == LogicalKeyboardKey.enter ||
                     event.logicalKey == LogicalKeyboardKey.space) {
-                  Navigator.pushNamed(context, '/updowngame');
+                  Navigator.pushNamed(context, '/howmuchgame');
                 }
               }
             },
@@ -246,7 +235,7 @@ class _UpDownOnboardingPageState extends State<UpDownOnboardingPage> {
                 SizedBox(width: width * 0.026),
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, '/updowngame');
+                    Navigator.pushNamed(context, '/howmuchgame');
                   },
                   child: ShaderMask(
                     shaderCallback: (Rect bounds) {

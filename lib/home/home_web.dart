@@ -3,9 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:heaven_of_mt/game_page/how_much/how_much_game.dart';
-import 'package:heaven_of_mt/game_page/updown/updown_game.dart';
-import 'package:heaven_of_mt/game_page/updown/updown_game_page.dart';
-import 'package:heaven_of_mt/onboarding/updown_onboarding.dart';
+import 'package:heaven_of_mt/onboarding/size_up_onboarding.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../game_page/captain/captain_game_page.dart';
@@ -20,7 +18,8 @@ import '../mini_onboarding.dart';
 import '../game_page/person/person_game_page.dart';
 import '../game_page/tele/tele_game_page.dart';
 import '../game_page/telestration/telestration_game_page.dart';
-import '../game_page/size_up/size_up_web_game.dart';
+import '../onboarding/how_much_game_onboarding.dart';
+import '../onboarding/updown_onboarding.dart';
 
 // 게임 이름 목록
 List<String> _gameNames = <String>[
@@ -72,8 +71,8 @@ List<Widget> pageList = [
   const TrainWebGame(),
   const HashtagWebGame(),
   const UpDownOnboardingPage(),
-  const SizeUpWebGame(),
-  const HowMuchWebGame(),
+  const SizeUpOnBoarding2(),
+  const HowMuchGameOnboarding(),
 ];
 
 class HomeWeb extends StatefulWidget {
