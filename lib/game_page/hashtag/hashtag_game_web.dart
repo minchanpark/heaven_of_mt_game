@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import '../../card/card.dart';
+import '../../card/hashtag_card.dart';
 import '../../game_contents.dart';
 import '../../gameover/gameover_web.dart';
 import '../../ready.dart';
@@ -20,7 +21,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
   FocusNode focusNode = FocusNode();
   int currentCardIndex = 0; // 현재 카드의 인덱스를 저장할 변수
   final CardSwiperController controller = CardSwiperController();
-  List<GameCard> cards = []; // cards 변수를 초기화
+  List<HashtagGameCard> cards = []; // cards 변수를 초기화
   List<GameContents> randomHash = [];
   bool _isAnswered = false;
   @override
@@ -49,7 +50,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
     var height = MediaQuery.of(context).size.height;
     cards = randomHash
         .map((gameContents) =>
-            GameCard(gameContents: gameContents, fontSize: 120))
+            HashtagGameCard(gameContents: gameContents))
         .toList();
     if (width < 1126 || height < 627) return const ReadyPage();
     return Scaffold(
@@ -197,17 +198,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                                               ),
                                               textAlign: TextAlign.center),
                                         )
-                                      : Stack(children: [
-                                          Positioned(
-                                            left: width * (180 / 1283),
-                                            top: height * (180 / 834),
-                                            child: Image.asset(
-                                                'assets/images/hashtag.png',
-                                                width: 80,
-                                                height: 80),
-                                          ),
-                                          cards[index]
-                                        ]);
+                                      : cards[index];
                                 },
                                 isDisabled: true,
                                 onSwipe: _onSwipe,

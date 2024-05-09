@@ -18,17 +18,16 @@ class HashtagGameCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/images/hashtag.png', width: 71, height: 52),
+            Image.asset('assets/images/hashtag.png', width: 80, height: 80),
             const SizedBox(width: 32),
             SizedBox(
-              width: 385,
-              height: 55,
+              width: 380,
               child: Text(
                 gameContents.name,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontFamily: 'DungGeunMo',
-                  color: Colors.white,
+                  color:  Colors.white,
                   fontWeight: FontWeight.w400,
                   fontSize: 120,
                   height: 1.286,
