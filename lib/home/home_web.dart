@@ -2,7 +2,6 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:heaven_of_mt/game_page/how_much/how_much_game.dart';
 import 'package:heaven_of_mt/onboarding/size_up_onboarding.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -370,13 +369,19 @@ class _HomeWebState extends State<HomeWeb> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Image.asset("assets/images/left_kk.png",
-                                            width: 24, height: 42),
+                                        Image.asset(
+                                            index < 8
+                                                ? "assets/images/left.png"
+                                                : "assets/images/left_kk.png",
+                                            width: 24,
+                                            height: 42),
                                         const SizedBox(width: 18),
                                         Container(
                                           width: width * 0.265,
-                                          decoration: const BoxDecoration(
-                                              color: Color(0xFFFFB202)),
+                                          decoration: BoxDecoration(
+                                              color: index < 8
+                                                  ? const Color(0xffFF62D3)
+                                                  : const Color(0xFFFFB202)),
                                           child: Center(
                                             child: Text(
                                               _gameNames[index],
@@ -391,7 +396,9 @@ class _HomeWebState extends State<HomeWeb> {
                                         ),
                                         const SizedBox(width: 18),
                                         Image.asset(
-                                            "assets/images/right_kk.png",
+                                            index < 8
+                                                ? "assets/images/right.png"
+                                                : "assets/images/right_kk.png",
                                             width: 24,
                                             height: 42)
                                       ],
