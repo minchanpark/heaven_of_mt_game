@@ -2,7 +2,6 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:heaven_of_mt/game_page/how_much/how_much_game.dart';
 import 'package:heaven_of_mt/onboarding/size_up_onboarding.dart';
 import 'package:url_launcher/url_launcher.dart';
 
