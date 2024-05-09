@@ -2,6 +2,8 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:heaven_of_mt/game_page/how_much/how_much_game.dart';
+import 'package:heaven_of_mt/game_page/size_up/size_up_game.dart';
+import 'package:heaven_of_mt/onboarding/size_up_onboarding.dart';
 import 'package:heaven_of_mt/onboarding/updown_onboarding.dart';
 import 'church_game/church_captain.dart';
 import 'church_game/church_disco.dart';
@@ -17,12 +19,13 @@ import 'game_page/musictitle/category_musictitle.dart';
 import 'game_page/tele/tele_game_page.dart';
 import 'game_page/telestration/telestration_game_page.dart';
 import 'game_page/train/train_game_web.dart';
-import 'game_page/updown/updown_game.dart';
 import 'game_page/updown/updown_game_page.dart';
 import 'home/home_church.dart';
 import 'home/home.dart';
 import 'game_page/person/person_game_page.dart';
 import 'game_page/size_up/size_up_web_game.dart';
+import 'mini_onboarding.dart';
+import 'onboarding/how_much_game_onboarding.dart';
 import 'splash.dart';
 
 Future<void> main() async {
@@ -58,9 +61,11 @@ Future<void> main() async {
         '/train': (BuildContext context) => const TrainWebGame(),
         '/hashtag': (BuildContext context) => const HashtagWebGame(),
         '/updown': (BuildContext context) => const UpDownOnboardingPage(),
-        '/updowngame': (BuildContext context) => const UpdownGamePage(),
-        '/sizeup': (BuildContext context) => const SizeUpWebGame(),
-        '/howmuch': (BuildContext context) => const HowMuchWebGame(),
+        '/updowngame': (BuildContext context) => const UpDownWebGame(),
+        '/sizeup': (BuildContext context) => const SizeUpOnBoarding2(),
+        '/sizeupgame': (BuildContext context) => const SizeupGamePage(),
+        '/howmuch': (BuildContext context) => const HowMuchGameOnboarding(),
+        '/howmuchgame': (BuildContext context) => const HowMuchWebGame(),
       },
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),

@@ -7,6 +7,9 @@ import 'package:heaven_of_mt/game_page/size_up/size_up_game.dart';
 import 'package:heaven_of_mt/game_page/train/train_game_web.dart';
 import 'package:heaven_of_mt/game_page/updown/updown_game_page.dart';
 import 'package:heaven_of_mt/game_page/how_much/how_much_game.dart';
+import 'package:heaven_of_mt/onboarding/how_much_game_onboarding.dart';
+import 'package:heaven_of_mt/onboarding/size_up_onboarding.dart';
+import 'package:heaven_of_mt/onboarding/updown_onboarding.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../game_page/captain/captain_game_page.dart';
@@ -184,7 +187,7 @@ class _GameOverState extends State<GameOver> {
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const UpDownWebGame()));
+                                                const UpDownOnboardingPage()));
                                     break;
                                   case 'hash':
                                     Navigator.of(context).push(
@@ -196,12 +199,12 @@ class _GameOverState extends State<GameOver> {
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const HowMuchWebGame()));
+                                                const HowMuchGameOnboarding()));
                                   case 'sizeup':
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const SizeupGamePage()));
+                                                const SizeUpOnBoarding2()));
                                     break;
                                   default:
                                     break;
