@@ -23,14 +23,14 @@ import 'game_page/updown/updown_game_page.dart';
 import 'home/home_church.dart';
 import 'home/home.dart';
 import 'game_page/person/person_game_page.dart';
-import 'game_page/size_up/size_up_web_game.dart';
-import 'mini_onboarding.dart';
+import 'onboarding/hashtag_game_onboarding.dart';
 import 'onboarding/how_much_game_onboarding.dart';
+import 'onboarding/whisper_train_onboarding.dart';
 import 'splash.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
+  await Firebase. initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
@@ -58,8 +58,10 @@ Future<void> main() async {
         '/church_disco': (BuildContext context) => const ChurchDiscoGame(),
         '/church_captain': (BuildContext context) => const ChurchCaptainGame(),
         '/church_four': (BuildContext context) => const ChurchFourGame(),
-        '/train': (BuildContext context) => const TrainWebGame(),
-        '/hashtag': (BuildContext context) => const HashtagWebGame(),
+        '/train': (BuildContext context) => const WhisperTrainOnboarding(),
+        '/traingame': (BuildContext context) => const TrainWebGame(),
+        '/hashtag': (BuildContext context) => const HashTagGameOnboarding(),
+        '/hashtaggame': (BuildContext context) => const HashtagWebGame(),
         '/updown': (BuildContext context) => const UpDownOnboardingPage(),
         '/updowngame': (BuildContext context) => const UpDownWebGame(),
         '/sizeup': (BuildContext context) => const SizeUpOnBoarding2(),
