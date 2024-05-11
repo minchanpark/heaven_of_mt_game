@@ -97,7 +97,7 @@ class _HowMuchWebGamePageState extends State<HowMuchWebGame> {
                         }
                       } else if (event.logicalKey ==
                           LogicalKeyboardKey.arrowRight) {
-                        if (currentCardIndex == 7) {
+                        if (currentCardIndex == 9) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => const GameOver(
@@ -203,7 +203,7 @@ class _HowMuchWebGamePageState extends State<HowMuchWebGame> {
 
                           IconButton(
                             onPressed: () {
-                              if (currentCardIndex == 7) {
+                              if (currentCardIndex == 9) {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (context) => const GameOver(
