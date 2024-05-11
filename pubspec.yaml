@@ -36,6 +36,11 @@ flutter:
     - assets/images/
     - assets/images/back.png
     - assets/images/back_image_new.png
+    - assets/images/darimi.png
+    - assets/images/드라이기.png
+    - assets/images/howmuch_card.png
+    - assets/images/fanmachine.png
+    - assets/images/redchicken.png
     - assets/person/
     - assets/movie/
     

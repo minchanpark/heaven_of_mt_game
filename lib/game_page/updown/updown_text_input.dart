@@ -93,7 +93,9 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
 
     setState(() {
       // UI 업데이트
-      _updownTextController.clear();
+      if (explain == '정답입니다!') {
+      } else
+        _updownTextController.clear();
     });
   }
 
