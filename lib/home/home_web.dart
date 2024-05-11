@@ -370,7 +370,7 @@ class _HomeWebState extends State<HomeWeb> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Image.asset(
-                                            index < 8
+                                            index < 9
                                                 ? "assets/images/left.png"
                                                 : "assets/images/left_kk.png",
                                             width: 24,
@@ -379,7 +379,7 @@ class _HomeWebState extends State<HomeWeb> {
                                         Container(
                                           width: width * 0.265,
                                           decoration: BoxDecoration(
-                                              color: index < 8
+                                              color: index < 9
                                                   ? const Color(0xffFF62D3)
                                                   : const Color(0xFFFFB202)),
                                           child: Center(
@@ -396,7 +396,7 @@ class _HomeWebState extends State<HomeWeb> {
                                         ),
                                         const SizedBox(width: 18),
                                         Image.asset(
-                                            index < 8
+                                            index < 9
                                                 ? "assets/images/right.png"
                                                 : "assets/images/right_kk.png",
                                             width: 24,
