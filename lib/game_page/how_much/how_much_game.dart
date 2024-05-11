@@ -33,12 +33,12 @@ class _HowMuchWebGamePageState extends State<HowMuchWebGame> {
     const HowMuchCard2(),
     const HowMuchCard3(),
     const HowMuchCard4(),
-    HowMuchcard5(),
-    HowMuchCard5to1(),
-    HowMuchcard5to3(),
-    HowMuchCard5to2(),
-    HowMuchcard6(),
-    HowMuchcard7(),
+    const HowMuchcard5(),
+    const HowMuchCard5to1(),
+    const HowMuchcard5to3(),
+    const HowMuchCard5to2(),
+    const HowMuchcard6(),
+    const HowMuchcard7(),
   ];
 
   @override
@@ -60,7 +60,7 @@ class _HowMuchWebGamePageState extends State<HowMuchWebGame> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
-    if (width < 1126 || height < 627) return ReadyPage();
+    if (width < 1126 || height < 627) return const ReadyPage();
     return Scaffold(
       backgroundColor: const Color.fromRGBO(14, 25, 62, 1),
       body: Stack(
