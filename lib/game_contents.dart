@@ -1272,7 +1272,7 @@ final List<SizeUpGameContents> sizeup = [
       index: '1',
       explain: '피어나다 카드의 세로 길이는?'),
   SizeUpGameContents(
-      name: 'assets/images/sizeup_card2.png',
+      name: 'assets/images/chocopie.png',
       answer: '27cm',
       index: '2',
       explain: '초코파이 상자의 가로 길이는?'),
