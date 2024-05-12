@@ -196,17 +196,20 @@ class _UpdownTextInputState extends State<UpdownTextInput>
   Widget build(BuildContext context) {
     String cursorText = _buildCursorText();
 
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
     return Stack(
       children: [
         Column(
           children: [
             _updateText(explain),
             if (explain == 'Up!' || explain == 'Down!')
-              SizedBox(height: 5)
+              SizedBox(height: height * (2 / 834))
             else if (explain == '정답입니다!')
-              SizedBox(height: 20)
+              SizedBox(height: height * (20 / 834))
             else
-              SizedBox(height: 28),
+              SizedBox(height: height * (28 / 834)),
             Stack(
               alignment: Alignment.center,
               children: [
@@ -227,10 +230,10 @@ class _UpdownTextInputState extends State<UpdownTextInput>
                   children: [
                     Text(
                       displayValueMax,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Color(0xffffffff),
                         letterSpacing: 14.4,
-                        fontSize: 84,
+                        fontSize: width * (84 / 1283),
                         fontWeight: FontWeight.w400,
                         fontFamily: 'DungGeunMo',
                       ),
@@ -240,24 +243,24 @@ class _UpdownTextInputState extends State<UpdownTextInput>
                     const SizedBox(width: 40),
                     Text(
                       cursorText,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Color(0xffffffff),
                         letterSpacing: 14.4,
                         fontWeight: FontWeight.w400,
-                        fontSize: 144,
+                        fontSize: width * (144 / 1283),
                         fontFamily: 'DungGeunMo',
                       ),
                     ),
-                    const SizedBox(width: 40),
+                    SizedBox(width: width * (40 / 1283)),
                     _compareText(),
-                    const SizedBox(width: 34),
+                    SizedBox(width: width * (34 / 1283)),
                     Text(
                       displayValueMin,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Color(0xffffffff),
                         letterSpacing: 14.4,
                         fontWeight: FontWeight.w400,
-                        fontSize: 84,
+                        fontSize: width * (84 / 1283),
                         fontFamily: 'DungGeunMo',
                       ),
                     ),
@@ -271,9 +274,9 @@ class _UpdownTextInputState extends State<UpdownTextInput>
                       onSubmitted: updateUI,
                       maxLength: 2,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style: TextStyle(
                         letterSpacing: 16.0,
-                        fontSize: 84,
+                        fontSize: width * (84 / 1283),
                         color: Colors.transparent,
                         fontFamily: 'DungGeunMo',
                       ),
@@ -292,9 +295,9 @@ class _UpdownTextInputState extends State<UpdownTextInput>
         ),
         (explain == '정답입니다!')
             ? Positioned(
-                left: 80,
-                child:
-                    Lottie.asset('assets/lottie.json', height: 600, width: 800),
+                left: width * (80 / 1283),
+                child: Lottie.asset('assets/lottie.json',
+                    height: height * (600 / 834), width: width * (800 / 1283)),
               )
             : Container(),
       ],
