@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 
-class ComponentHowMuch2 extends StatefulWidget {
+class ComponentHowMuch3 extends StatefulWidget {
   final String name;
   final String image;
-  final int price;
+  final String priceString;
+
   final int index;
   final int compontntWidth;
   final int componentHeight;
@@ -15,11 +16,10 @@ class ComponentHowMuch2 extends StatefulWidget {
   final double subWidth;
   final double subHeight;
 
-  const ComponentHowMuch2({
+  const ComponentHowMuch3({
     super.key,
     required this.name,
     required this.image,
-    required this.price,
     required this.index,
     required this.compontntWidth,
     required this.componentHeight,
@@ -27,13 +27,14 @@ class ComponentHowMuch2 extends StatefulWidget {
     required this.textHeight,
     required this.subWidth,
     required this.subHeight,
+    required this.priceString,
   });
 
   @override
-  State<ComponentHowMuch2> createState() => _ComponentHowMuch2State();
+  State<ComponentHowMuch3> createState() => _ComponentHowMuch3State();
 }
 
-class _ComponentHowMuch2State extends State<ComponentHowMuch2> {
+class _ComponentHowMuch3State extends State<ComponentHowMuch3> {
   late String name;
   late int index;
 
@@ -91,15 +92,17 @@ class _ComponentHowMuch2State extends State<ComponentHowMuch2> {
                       alignment: Alignment.center,
                       children: [
                         SizedBox(
-                          width: width * (128.00137 / 1283),
-                          height: height * 0.066,
-                          child: Image.asset('assets/images/Subtract.png'),
+                          child: Image.asset(
+                            'assets/images/Subtract.png',
+                            width: width * (170.156 / 1283),
+                            height: height * (70 / 834),
+                          ),
                         ),
                         Row(
                           children: [
-                            SizedBox(width: width * (20 / 1283)),
+                            SizedBox(width: width * (25 / 1283)),
                             Text(
-                              formatCurrency.format(widget.price),
+                              widget.priceString,
                               style: TextStyle(
                                   fontSize: width * (26 / 1283),
                                   fontWeight: FontWeight.w700,
@@ -138,12 +141,8 @@ class _ComponentHowMuch2State extends State<ComponentHowMuch2> {
                     name == '면도기' ||
                     name == '드라이기' ||
                     name == '에어컨' ||
-                    name == '공기청정기' ||
-                    name == '초밥' ||
-                    name == '후라이드치킨' ||
-                    name == '양념치킨' ||
-                    name == '탄산') &&
-                (index == 3 || index == 7 || index == 8 || index == 9))
+                    name == '공기청정기') &&
+                (index == 3 || index == 7 || index == 8))
             ? SizedBox(
                 width: width * (173 / 1283),
                 height: height * (148 / 834),

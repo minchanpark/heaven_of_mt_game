@@ -2,7 +2,12 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'package:heaven_of_mt/game_page/how_much/how_much_card5to3.dart';
+import 'package:heaven_of_mt/game_page/how_much/how_much_card5to2.dart';
+import 'package:heaven_of_mt/game_page/how_much/how_much_card6_1.dart';
+import 'package:heaven_of_mt/game_page/how_much/how_much_card6_2.dart';
+import 'package:heaven_of_mt/game_page/how_much/how_much_card6_3.dart';
+import 'package:heaven_of_mt/game_page/how_much/how_much_card7_1.dart';
+import 'package:heaven_of_mt/game_page/how_much/how_much_card7_2.dart';
 import '../../../gameover/gameover_web.dart';
 import '../../../ready.dart';
 import 'how_much_card1.dart';
@@ -11,9 +16,10 @@ import 'how_much_card3.dart';
 import 'how_much_card4.dart';
 import 'how_much_card5.dart';
 import 'how_much_card5_1.dart';
-import 'how_much_card5_2.dart';
+import 'how_much_card5_3.dart';
 import 'how_much_card6.dart';
 import 'how_much_card7.dart';
+import 'how_much_card7_3.dart';
 
 class HowMuchWebGame extends StatefulWidget {
   const HowMuchWebGame({
@@ -35,10 +41,16 @@ class _HowMuchWebGamePageState extends State<HowMuchWebGame> {
     const HowMuchCard4(),
     const HowMuchcard5(),
     const HowMuchCard5to1(),
-    const HowMuchcard5to3(),
-    const HowMuchCard5to2(),
+    const HowMuchcard5to2(),
+    const HowMuchCard5to3(),
     const HowMuchcard6(),
+    const HowMuchCard6to1(),
+    const HowMuchcard6to2(),
+    const HowMuchCard6to3(),
     const HowMuchcard7(),
+    const HowMuchCard7to1(),
+    const HowMuchcard7to2(),
+    const HowMuchCard7to3(),
   ];
 
   @override
@@ -97,7 +109,7 @@ class _HowMuchWebGamePageState extends State<HowMuchWebGame> {
                         }
                       } else if (event.logicalKey ==
                           LogicalKeyboardKey.arrowRight) {
-                        if (currentCardIndex == 9) {
+                        if (currentCardIndex == 15) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => const GameOver(
@@ -203,7 +215,7 @@ class _HowMuchWebGamePageState extends State<HowMuchWebGame> {
 
                           IconButton(
                             onPressed: () {
-                              if (currentCardIndex == 9) {
+                              if (currentCardIndex == 15) {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (context) => const GameOver(

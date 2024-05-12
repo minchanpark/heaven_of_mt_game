@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:heaven_of_mt/game_page/how_much/component_how_much3.dart';
-import 'component_how_much2.dart';
+import 'component_how_much3.dart';
 
-class HowMuchcard6 extends StatelessWidget {
-  const HowMuchcard6({super.key});
+class HowMuchcard6to2 extends StatelessWidget {
+  const HowMuchcard6to2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +54,7 @@ class HowMuchcard6 extends StatelessWidget {
                   priceString: '2만원',
                 ),
                 ComponentHowMuch3(
-                  index: 0,
+                  index: 8,
                   name: '면도기',
                   image: 'assets/images/shave.png',
                   compontntWidth: 77,
@@ -70,9 +68,8 @@ class HowMuchcard6 extends StatelessWidget {
                 SizedBox(),
               ],
             ),
-            SizedBox(height: height * (10 / 834)),
             Image.asset('assets/images/line.png'),
-            SizedBox(height: height * (20 / 834)),
+            //SizedBox(height: height * (30 / 834)),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -104,7 +101,7 @@ class HowMuchcard6 extends StatelessWidget {
                 ),
                 //SizedBox(width: width * (35 / 834)),
                 const ComponentHowMuch3(
-                  index: 0,
+                  index: 8,
                   name: '드라이기',
                   image: 'assets/images/드라이기.png',
                   compontntWidth: 111,
@@ -117,14 +114,14 @@ class HowMuchcard6 extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: height * (15 / 834)),
+            //SizedBox(height: height * (8 / 834)),
             Image.asset('assets/images/line.png'),
-            SizedBox(height: height * (16 / 834)),
+            //SizedBox(height: height * (21 / 834)),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ComponentHowMuch3(
-                  index: 0,
+                  index: 8,
                   name: '에어컨',
                   image: 'assets/images/air.png',
                   compontntWidth: 200,
@@ -149,7 +146,7 @@ class HowMuchcard6 extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: height * (13 / 834)),
+            //SizedBox(height: height * (13 / 834)),
             Image.asset('assets/images/line.png'),
             Column(
               children: [
@@ -170,7 +167,7 @@ class HowMuchcard6 extends StatelessWidget {
                       priceString: '2만원',
                     ),
                     ComponentHowMuch3(
-                      index: 0,
+                      index: 8,
                       name: '공기청정기',
                       image: 'assets/images/air_clean.png',
                       compontntWidth: 169,

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'component_how_much2.dart';
 
-class HowMuchcard5to3 extends StatelessWidget {
-  const HowMuchcard5to3({super.key});
+class HowMuchcard5to2 extends StatelessWidget {
+  const HowMuchcard5to2({super.key});
 
   @override
   Widget build(BuildContext context) {
