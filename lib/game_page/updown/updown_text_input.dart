@@ -65,18 +65,6 @@ class _UpdownTextInputState extends State<UpdownTextInput>
     }
   }
 
-  Widget _compareText() {
-    return const Text(
-      '<',
-      style: TextStyle(
-        color: Color(0xfffffbfe),
-        fontSize: 84,
-        fontWeight: FontWeight.w400,
-        fontFamily: 'DungGeunMo',
-      ),
-    );
-  }
-
   void _resetGame() {
     // 게임 상태를 초기화하는 로직
     // 예: 사용자의 입력 필드를 초기화
@@ -137,6 +125,18 @@ class _UpdownTextInputState extends State<UpdownTextInput>
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
+    Widget _compareText() {
+      return Text(
+        '<',
+        style: TextStyle(
+          color: Color(0xfffffbfe),
+          fontSize: width * (84 / 1283),
+          fontWeight: FontWeight.w400,
+          fontFamily: 'DungGeunMo',
+        ),
+      );
+    }
+
     Widget _updateText(String text) {
       if (text == 'Up!') {
         return Text(
@@ -161,7 +161,7 @@ class _UpdownTextInputState extends State<UpdownTextInput>
       } else if (text == '정답입니다!') {
         return Column(
           children: [
-            SizedBox(height: height * (38 / 834)),
+            SizedBox(height: height * (36.5 / 834)),
             Text(
               text,
               style: TextStyle(
