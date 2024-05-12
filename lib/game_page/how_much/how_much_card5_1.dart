@@ -15,7 +15,7 @@ class HowMuchCard5to1 extends StatelessWidget {
           width: width * 0.734,
           height: height * 0.743,
           child: Image.asset(
-            'assets/images/how_much_back2.png',
+            'assets/images/how_much_back.png',
             fit: BoxFit.fill,
           ),
         ),

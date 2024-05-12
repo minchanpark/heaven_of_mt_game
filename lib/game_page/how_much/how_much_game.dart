@@ -119,7 +119,7 @@ class _HowMuchWebGamePageState extends State<HowMuchWebGame> {
                           );
                         } else {
                           controller.swipeLeft();
-                          if (currentCardIndex != 2) {
+                          if (currentCardIndex != 15) {
                             setState(() {
                               isUndoButtonVisible = false;
                             });
