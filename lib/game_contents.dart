@@ -1230,6 +1230,12 @@ final List<GameContents> train = [
   GameContents(
       name: '9시 뉴스 속보입니다. 현재 24학번 부르심의 세대 새내기들은 다들 귀엽고 깜찍하고 이쁘고 잘생겨서 논란입니다.',
       index: '3'),
+      GameContents(
+      name: '마트에서 교수님을 만난 민지는 교수님에게 "교수님 노란수박과 빨간수박 중 어떤 수박이 맛있을까요?" 라고 물어봤다. 교수님이 대답하였다. 뉴진스의 하입보이요.',
+      index: '4'),
+      GameContents(
+      name: '만 2세 우량아 애현이는 태어나서 한 살 때 호랑이를 때려잡았고 16개월 차에는 병원 인큐베이터를 접수한 태생부터 장군감인 소녀였다.',
+      index: '5'),
 ];
 
 final List<UpDownGameContents> updown = [
@@ -1262,7 +1268,13 @@ final List<GameContents> hashtag = [
   GameContents(name: '재수강', index: '1'),
   GameContents(name: '썸', index: '2'),
   GameContents(name: '엄마', index: '3'),
-  GameContents(name: '한동대', index: '4'),
+  GameContents(name: '휴강', index: '4'),
+  GameContents(name: '취업', index: '5'),
+  GameContents(name: '여행', index: '6'),
+  GameContents(name: '낭만', index: '7'),
+  GameContents(name: '청춘', index: '8'),
+  GameContents(name: '결혼', index: '9'),
+  GameContents(name: '한동대', index: '10'),
 ];
 
 final List<SizeUpGameContents> sizeup = [
