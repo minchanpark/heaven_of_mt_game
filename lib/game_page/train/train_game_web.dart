@@ -133,7 +133,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                         }
                       } else if (event.logicalKey ==
                           LogicalKeyboardKey.arrowRight) {
-                        if (currentCardIndex == 2) {
+                        if (currentCardIndex == 4) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => const GameOver(
@@ -199,7 +199,9 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                         )),
                                   ],
                                 )
-                              : const Text(' ', style: TextStyle(fontSize: 70)) // 이렇게 해도 되나 싶은...
+                              : const Text(' ',
+                                  style: TextStyle(
+                                      fontSize: 70)) // 이렇게 해도 되나 싶은...
                         ],
                       ),
                       Expanded(
@@ -285,7 +287,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                   // 타이머 진행중이면 버튼 disable
                                   if (_isCounting || _isShowing) {
                                     return;
-                                  } else if (currentCardIndex == 2) {
+                                  } else if (currentCardIndex == 4) {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) => const GameOver(
