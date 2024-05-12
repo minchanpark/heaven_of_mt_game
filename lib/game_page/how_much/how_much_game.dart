@@ -2,25 +2,8 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'package:heaven_of_mt/game_page/how_much/how_much_card5to2.dart';
-import 'package:heaven_of_mt/game_page/how_much/how_much_card6_1.dart';
-import 'package:heaven_of_mt/game_page/how_much/how_much_card6_2.dart';
-import 'package:heaven_of_mt/game_page/how_much/how_much_card6_3.dart';
-import 'package:heaven_of_mt/game_page/how_much/how_much_card7_1.dart';
-import 'package:heaven_of_mt/game_page/how_much/how_much_card7_2.dart';
 import '../../../gameover/gameover_web.dart';
 import '../../../ready.dart';
-import 'how_much_card1.dart';
-import 'how_much_card2.dart';
-import 'how_much_card3.dart';
-import 'how_much_card4.dart';
-import 'how_much_card5.dart';
-import 'how_much_card5_1.dart';
-import 'how_much_card5_3.dart';
-import 'how_much_card6.dart';
-import 'how_much_card7.dart';
-import 'how_much_card7_3.dart';
-
 class HowMuchWebGame extends StatefulWidget {
   const HowMuchWebGame({
     super.key,
@@ -35,22 +18,22 @@ class _HowMuchWebGamePageState extends State<HowMuchWebGame> {
   int currentCardIndex = 0; // 현재 카드의 인덱스를 저장할 변수
   final CardSwiperController controller = CardSwiperController();
   List howMuchCards = [
-    const HowMuchCard1(),
-    const HowMuchCard2(),
-    const HowMuchCard3(),
-    const HowMuchCard4(),
-    const HowMuchcard5(),
-    const HowMuchCard5to1(),
-    const HowMuchcard5to2(),
-    const HowMuchCard5to3(),
-    const HowMuchcard6(),
-    const HowMuchCard6to1(),
-    const HowMuchcard6to2(),
-    const HowMuchCard6to3(),
-    const HowMuchcard7(),
-    const HowMuchCard7to1(),
-    const HowMuchcard7to2(),
-    const HowMuchCard7to3(),
+    'assets/images/mart1-1.png',
+    'assets/images/mart1-2.png',
+    'assets/images/mart1-3.png',
+    'assets/images/mart1-4.png',
+    'assets/images/mart2-1.png',
+    'assets/images/mart2-2.png',
+    'assets/images/mart2-3.png',
+    'assets/images/mart2-4.png',
+    'assets/images/mart3-1.png',
+    'assets/images/mart3-2.png',
+    'assets/images/mart3-3.png',
+    'assets/images/mart3-4.png',
+    'assets/images/mart4-1.png',
+    'assets/images/mart4-2.png',
+    'assets/images/mart4-3.png',
+    'assets/images/mart4-4.png'
   ];
 
   @override
@@ -204,7 +187,7 @@ class _HowMuchWebGamePageState extends State<HowMuchWebGame> {
                                   verticalThresholdPercentage,
                                 ) {
                                   currentCardIndex = index;
-                                  return howMuchCards[index];
+                                  return Image.asset(howMuchCards[index]);
                                 },
                                 isDisabled: true,
                                 onSwipe: _onSwipe,
