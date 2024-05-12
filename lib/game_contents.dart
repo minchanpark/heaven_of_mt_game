@@ -1230,29 +1230,18 @@ final List<GameContents> train = [
   GameContents(
       name: '9시 뉴스 속보입니다. 현재 24학번 부르심의 세대 새내기들은 다들 귀엽고 깜찍하고 이쁘고 잘생겨서 논란입니다.',
       index: '3'),
-      GameContents(
-      name: '마트에서 교수님을 만난 민지는 교수님에게 "교수님 노란수박과 빨간수박 중 어떤 수박이 맛있을까요?" 라고 물어봤다. 교수님이 대답하였다. 뉴진스의 하입보이요.',
+  GameContents(
+      name:
+          '마트에서 교수님을 만난 민지는 교수님에게 "교수님 노란수박과 빨간수박 중 어떤 수박이 맛있을까요?" 라고 물어봤다. 교수님이 대답하였다. 뉴진스의 하입보이요.',
       index: '4'),
-      GameContents(
-      name: '만 2세 우량아 애현이는 태어나서 한 살 때 호랑이를 때려잡았고 16개월 차에는 병원 인큐베이터를 접수한 태생부터 장군감인 소녀였다.',
+  GameContents(
+      name:
+          '만 2세 우량아 애현이는 태어나서 한 살 때 호랑이를 때려잡았고 16개월 차에는 병원 인큐베이터를 접수한 태생부터 장군감인 소녀였다.',
       index: '5'),
 ];
 
 final List<UpDownGameContents> updown = [
-  UpDownGameContents(name: '업다운', explain1: '#과연 #몇일까 #그 숫자는', index: '1'),
-  UpDownGameContents(
-      name: '1-100',
-      explain1: '#조원들이 함께 손을 들고      #지목하면 #외치기',
-      explain2: '',
-      index: '2'),
-  UpDownGameContents(
-      name: '정답: 50',
-      explain1: '25            up',
-      explain2: '80            down',
-      index: '3'),
-  UpDownGameContents(name: '업다운', explain1: '#과연 #몇일까 #그 숫자는', index: '4'),
   UpDownGameContents(name: '', explain1: '77', index: '5'),
-  UpDownGameContents(name: '업다운', explain1: '#과연 #몇일까 #그 숫자는', index: '6'),
   UpDownGameContents(name: '', explain1: '33', index: '7'),
 ];
 
@@ -1280,12 +1269,12 @@ final List<GameContents> hashtag = [
 final List<SizeUpGameContents> sizeup = [
   SizeUpGameContents(
       name: 'assets/images/sizeup_card1.png',
-      answer: '9.5cm',
+      answer: '11.8cm',
       index: '1',
       explain: '피어나다 카드의\n세로 길이는?'),
   SizeUpGameContents(
       name: 'assets/images/chocopie.png',
-      answer: '27cm',
+      answer: '24cm',
       index: '2',
       explain: '초코파이 상자의\n가로 길이는?'),
   SizeUpGameContents(

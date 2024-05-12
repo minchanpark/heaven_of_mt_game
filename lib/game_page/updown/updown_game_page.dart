@@ -187,9 +187,7 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
                                     horizontalThresholdPercentage,
                                     verticalThresholdPercentage,
                                   ) {
-                                    return ((index == 4) || (index == 6))
-                                        ? UpdownTextInput(index: index)
-                                        : cards[index];
+                                    return UpdownTextInput(index: index);
                                   },
                                   isDisabled: true,
                                   onSwipe: _onSwipe,
@@ -246,6 +244,7 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
   ) {
     setState(() {
       currentCardIndex = currentIndex ?? 0; // currentIndex가 null인 경우 기본값 0으로 설정
+      setState(() {});
       _updownTextController.clear();
     });
 
