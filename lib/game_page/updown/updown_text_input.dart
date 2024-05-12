@@ -130,74 +130,74 @@ class _UpdownTextInputState extends State<UpdownTextInput>
     });
   }
 
-  Widget _updateText(String text) {
-    if (text == 'Up!') {
-      return Text(
-        text,
-        style: TextStyle(
-          color: Color(0xffFF002E),
-          fontSize: 96,
-          fontWeight: FontWeight.w400,
-          fontFamily: 'DungGeunMo',
-        ),
-      );
-    } else if (text == 'Down!') {
-      return Text(
-        text,
-        style: const TextStyle(
-          color: Color(0xff00F0FF),
-          fontSize: 96,
-          fontWeight: FontWeight.w400,
-          fontFamily: 'DungGeunMo',
-        ),
-      );
-    } else if (text == '정답입니다!') {
-      return Column(
-        children: [
-          SizedBox(height: 30),
-          Text(
-            text,
-            style: const TextStyle(
-              color: Color(0xffFFFBFE),
-              fontSize: 64,
-              fontWeight: FontWeight.w400,
-              fontFamily: 'DungGeunMo',
-            ),
-          ),
-        ],
-      );
-    } else {
-      return Column(
-        children: [
-          const Text(
-            '예상되는 숫자를 입력한 후',
-            style: TextStyle(
-              color: Color(0xfffffbfe),
-              fontSize: 40,
-              fontWeight: FontWeight.w400,
-              fontFamily: 'DungGeunMo',
-            ),
-          ),
-          const Text(
-            'ENTER를 누르세요!',
-            style: TextStyle(
-              color: Color(0xfffffbfe),
-              fontSize: 40,
-              fontWeight: FontWeight.w400,
-              fontFamily: 'DungGeunMo',
-            ),
-          ),
-        ],
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     String cursorText = _buildCursorText();
 
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+
+    Widget _updateText(String text) {
+      if (text == 'Up!') {
+        return Text(
+          text,
+          style: TextStyle(
+            color: Color(0xffFF002E),
+            fontSize: width * (96 / 1283),
+            fontWeight: FontWeight.w400,
+            fontFamily: 'DungGeunMo',
+          ),
+        );
+      } else if (text == 'Down!') {
+        return Text(
+          text,
+          style: TextStyle(
+            color: Color(0xff00F0FF),
+            fontSize: width * (96 / 1283),
+            fontWeight: FontWeight.w400,
+            fontFamily: 'DungGeunMo',
+          ),
+        );
+      } else if (text == '정답입니다!') {
+        return Column(
+          children: [
+            SizedBox(height: height * (35 / 834)),
+            Text(
+              text,
+              style: TextStyle(
+                color: Color(0xffFFFBFE),
+                fontSize: width * (64 / 1283),
+                fontWeight: FontWeight.w400,
+                fontFamily: 'DungGeunMo',
+              ),
+            ),
+          ],
+        );
+      } else {
+        return Column(
+          children: [
+            Text(
+              '예상되는 숫자를 입력한 후',
+              style: TextStyle(
+                color: Color(0xfffffbfe),
+                fontSize: width * (40 / 1283),
+                fontWeight: FontWeight.w400,
+                fontFamily: 'DungGeunMo',
+              ),
+            ),
+            Text(
+              'ENTER를 누르세요!',
+              style: TextStyle(
+                color: Color(0xfffffbfe),
+                fontSize: width * (40 / 1283),
+                fontWeight: FontWeight.w400,
+                fontFamily: 'DungGeunMo',
+              ),
+            ),
+          ],
+        );
+      }
+    }
 
     return Stack(
       children: [
@@ -216,8 +216,8 @@ class _UpdownTextInputState extends State<UpdownTextInput>
                 UnconstrainedBox(
                   child: ClipRRect(
                     child: SizedBox(
-                      width: 643,
-                      height: 205,
+                      width: width * (683 / 1283),
+                      height: height * (245 / 834),
                       child: Image.asset(
                         'assets/images/back_image_new.png',
                         fit: BoxFit.contain,
