@@ -197,19 +197,21 @@ class _SizeUpWebGameState extends State<SizeUpWebGame> {
                                             style: TextStyle(
                                                 fontFamily: 'DungGeunMo',
                                                 fontWeight: FontWeight.w400,
-                                                fontSize: width * 0.06,
+                                                fontSize: width * (65 / 1283),
                                                 color: const Color(0xFFFFFFFF)),
                                           ),
                                         )
                                       : Column(
                                           children: [
-                                            SizedBox(height: height * (59 / 834)),
+                                            SizedBox(
+                                                height: height * (59 / 834)),
                                             Image.asset(
                                               cards[index],
                                               width: width * (360 / 1283),
                                               height: height * (240 / 834),
                                             ),
-                                            SizedBox(height: height * (50 / 834)),
+                                            SizedBox(
+                                                height: height * (50 / 834)),
                                             Text(
                                               explain_cards[index],
                                               style: TextStyle(
