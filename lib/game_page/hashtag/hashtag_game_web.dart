@@ -48,8 +48,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     cards = randomHash
-        .map((gameContents) =>
-            HashtagGameCard(gameContents: gameContents))
+        .map((gameContents) => HashtagGameCard(gameContents: gameContents))
         .toList();
     if (width < 1126 || height < 627) return const ReadyPage();
     return Scaffold(
@@ -95,7 +94,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                       } else if (event.logicalKey ==
                           LogicalKeyboardKey.arrowRight) {
                         _isAnswered = false;
-                        if (currentCardIndex == 3) {
+                        if (currentCardIndex == 9) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => const GameOver(
@@ -206,7 +205,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                             ),
                             GestureDetector(
                                 onTap: () {
-                                  if (currentCardIndex == 3) {
+                                  if (currentCardIndex == 9) {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) => const GameOver(
