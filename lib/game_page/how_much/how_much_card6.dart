@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:heaven_of_mt/game_page/how_much/component_how_much3.dart';
-import 'component_how_much2.dart';
 
 class HowMuchcard6 extends StatelessWidget {
   const HowMuchcard6({super.key});
