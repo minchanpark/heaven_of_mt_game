@@ -301,9 +301,7 @@ class _SizeUpWebGameState extends State<SizeUpWebGame> {
                           });
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: _isAnswered
-                              ? Colors.white
-                              : const Color(0xffFFB94F),
+                          backgroundColor: const Color(0xffFFB94F),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12)),
                         ),
