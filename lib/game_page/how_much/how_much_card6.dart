@@ -15,14 +15,12 @@ class HowMuchcard6 extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        Expanded(
-          child: SizedBox(
-            width: width * (940 / 1283),
-            height: height * (658 / 834),
-            child: Image.asset(
-              'assets/images/how_much_back.png',
-              fit: BoxFit.fill,
-            ),
+        SizedBox(
+          width: width * (940 / 1283),
+          height: height * (658 / 834),
+          child: Image.asset(
+            'assets/images/how_much_back.png',
+            fit: BoxFit.fill,
           ),
         ),
         Column(
