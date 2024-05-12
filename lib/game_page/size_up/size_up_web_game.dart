@@ -204,8 +204,8 @@ class _SizeUpWebGameState extends State<SizeUpWebGame> {
                                       : Column(
                                           children: [
                                             SizedBox(
-                                              width: width * (390 / 1283),
-                                              height: height * (390 / 834),
+                                              width: width * (409 / 1283),
+                                              height: height * (302 / 834),
                                               child: Image.asset(
                                                 cards[index],
                                                 fit: BoxFit.fitHeight,
