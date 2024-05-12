@@ -127,7 +127,7 @@ class _HowMuchWebGamePageState extends State<HowMuchWebGame> {
                           ),
                           const Spacer(),
                           Text(
-                            '${currentCardIndex + 1}/${howMuchCards.length}',
+                            '${(currentCardIndex ~/ 4) + 1}/${howMuchCards.length / 4}',
                             style: TextStyle(
                               fontFamily: 'DungGeunMo',
                               color: Colors.white,

@@ -324,8 +324,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                           : _showFinal
                               ? _isAnswered
                                   ? SizedBox(
-                                      width: width * 0.173,
-                                      height: height * 0.085)
+                                      height: height * (71 / 834))
                                   : CustomButton(
                                       onPressed: () {
                                         setState(() {
