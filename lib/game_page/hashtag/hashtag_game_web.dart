@@ -2,7 +2,6 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import '../../card/card.dart';
 import '../../card/hashtag_card.dart';
 import '../../game_contents.dart';
 import '../../gameover/gameover_web.dart';
@@ -246,7 +245,7 @@ class _HashtagWebGamePageState extends State<HashtagWebGame> {
                                 borderRadius: BorderRadius.circular(12)),
                           ),
                           child: Text(
-                            _isAnswered ? '정답보기' : '문제가리기',
+                            !_isAnswered ? '정답보기' : '문제가리기',
                             style: TextStyle(
                               fontFamily: 'DungGeunMo',
                               fontWeight: FontWeight.w400,
