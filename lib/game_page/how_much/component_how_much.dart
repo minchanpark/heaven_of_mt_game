@@ -37,7 +37,7 @@ class _ComponentHowMuchState extends State<ComponentHowMuch> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
-    final formatCurrency = new NumberFormat.simpleCurrency(
+    final formatCurrency = NumberFormat.simpleCurrency(
         locale: "ko_KR", name: "", decimalDigits: 0);
 
     return Stack(

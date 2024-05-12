@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'component_how_much2.dart';
 
-class HowMuchcard7 extends StatelessWidget {
-  const HowMuchcard7({super.key});
+class HowMuchcard7to2 extends StatelessWidget {
+  const HowMuchcard7to2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class HowMuchcard7 extends StatelessWidget {
         ),
         Column(
           children: [
-            SizedBox(height: height * (23 / 834)),
+            //SizedBox(height: height * (23 / 834)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -79,7 +79,7 @@ class HowMuchcard7 extends StatelessWidget {
                   ],
                 ),
                 const ComponentHowMuch2(
-                  index: 0,
+                  index: 9,
                   name: '초밥',
                   image: 'assets/images/susui.png',
                   price: 2000,
@@ -105,9 +105,9 @@ class HowMuchcard7 extends StatelessWidget {
                 SizedBox(width: width * (22 / 1283)),
               ],
             ),
-            SizedBox(height: height * (18 / 834)),
+            //SizedBox(height: height * (18 / 834)),
             Image.asset('assets/images/line.png'),
-            SizedBox(height: height * (18 / 834)),
+            //SizedBox(height: height * (18 / 834)),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -140,7 +140,7 @@ class HowMuchcard7 extends StatelessWidget {
                 ),
                 SizedBox(width: width * (12 / 834)),
                 const ComponentHowMuch2(
-                  index: 0,
+                  index: 9,
                   name: '후라이드치킨',
                   image: 'assets/images/chicken.png',
                   price: 18000,
@@ -153,9 +153,9 @@ class HowMuchcard7 extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: height * (8 / 834)),
+            //SizedBox(height: height * (8 / 834)),
             Image.asset('assets/images/line.png'),
-            SizedBox(height: height * (21 / 834)),
+            //SizedBox(height: height * (21 / 834)),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -187,7 +187,7 @@ class HowMuchcard7 extends StatelessWidget {
                 ),
                 SizedBox(width: width * (32 / 834)),
                 const ComponentHowMuch2(
-                  index: 0,
+                  index: 9,
                   name: '양념치킨',
                   image: 'assets/images/redchicken.png',
                   price: 20000,
@@ -200,7 +200,7 @@ class HowMuchcard7 extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: height * (13 / 834)),
+            //SizedBox(height: height * (13 / 834)),
             Image.asset('assets/images/line.png'),
             Column(
               children: [
@@ -223,7 +223,7 @@ class HowMuchcard7 extends StatelessWidget {
                     ),
                     SizedBox(width: width * (70 / 834)),
                     const ComponentHowMuch2(
-                      index: 0,
+                      index: 9,
                       name: '탄산',
                       image: 'assets/images/spakling.png',
                       price: 2000,
