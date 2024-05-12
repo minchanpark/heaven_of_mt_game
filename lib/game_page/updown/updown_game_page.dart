@@ -93,7 +93,7 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
                         }
                       } else if (event.logicalKey ==
                           LogicalKeyboardKey.arrowRight) {
-                        if (currentCardIndex == 6) {
+                        if (currentCardIndex == 1) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => const GameOver(
@@ -198,7 +198,7 @@ class _TrainWebGamePageState extends State<UpDownWebGame> {
 
                             IconButton(
                               onPressed: () {
-                                if (currentCardIndex == 6) {
+                                if (currentCardIndex == 1) {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
                                       builder: (context) => const GameOver(
