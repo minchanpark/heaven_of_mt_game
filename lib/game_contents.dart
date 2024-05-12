@@ -1279,7 +1279,7 @@ final List<SizeUpGameContents> sizeup = [
       explain: '초코파이 상자의\n가로 길이는?'),
   SizeUpGameContents(
       name: 'assets/images/sizeup_card3.png',
-      answer: '사회자가 지정한 사물을 맞춰보세요!',
+      answer: '사회자가 지정한 사물을\n맞춰보세요!',
       index: '3',
       explain: '사회자가 직접 측정합니다!'),
 ];

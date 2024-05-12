@@ -161,7 +161,7 @@ class _UpdownTextInputState extends State<UpdownTextInput>
       } else if (text == '정답입니다!') {
         return Column(
           children: [
-            SizedBox(height: height * (35 / 834)),
+            SizedBox(height: height * (38 / 834)),
             Text(
               text,
               style: TextStyle(
@@ -209,7 +209,7 @@ class _UpdownTextInputState extends State<UpdownTextInput>
             else if (explain == '정답입니다!')
               SizedBox(height: height * (20 / 834))
             else
-              SizedBox(height: height * (28 / 834)),
+              SizedBox(height: height * (30 / 834)),
             Stack(
               alignment: Alignment.center,
               children: [
