@@ -93,7 +93,7 @@ class _HashTagGameOnboardingState extends State<HashTagGameOnboarding> {
                 ),
                 SizedBox(width: width * (55 / 1283)),
                 Text(
-                  '권장난이도: ☆☆☆',
+                  '난이도: ☆☆☆',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: const Color(0xFFD1D1D1),
