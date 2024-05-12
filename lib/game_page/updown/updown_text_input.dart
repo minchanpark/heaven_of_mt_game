@@ -105,7 +105,7 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
         text,
         style: const TextStyle(
           color: Color(0xffFF002E),
-          fontSize: 90,
+          fontSize: 110,
           fontWeight: FontWeight.w400,
           fontFamily: 'DungGeunMo',
         ),
@@ -115,7 +115,7 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
         text,
         style: const TextStyle(
           color: Color(0xff00F0FF),
-          fontSize: 90,
+          fontSize: 110,
           fontWeight: FontWeight.w400,
           fontFamily: 'DungGeunMo',
         ),
@@ -125,7 +125,7 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
         text,
         style: const TextStyle(
           color: Color(0xffFFFBFE),
-          fontSize: 64,
+          fontSize: 84,
           fontWeight: FontWeight.w400,
           fontFamily: 'DungGeunMo',
         ),
@@ -153,7 +153,7 @@ class _UpdownTextInputState extends State<UpdownTextInput> {
         if (explain == 'Up!' || explain == 'Down!')
           SizedBox(height: 5)
         else if (explain == '정답입니다!')
-          SizedBox(height: 40)
+          SizedBox(height: 42)
         else
           SizedBox(height: 79.31),
         Stack(
