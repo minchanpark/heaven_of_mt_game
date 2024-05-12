@@ -205,7 +205,7 @@ class _UpdownTextInputState extends State<UpdownTextInput>
           children: [
             _updateText(explain),
             if (explain == 'Up!' || explain == 'Down!')
-              SizedBox(height: height * (5 / 834))
+              SizedBox(height: height * (2 / 834))
             else if (explain == '정답입니다!')
               SizedBox(height: height * (20 / 834))
             else
@@ -216,8 +216,8 @@ class _UpdownTextInputState extends State<UpdownTextInput>
                 UnconstrainedBox(
                   child: ClipRRect(
                     child: SizedBox(
-                      width: width * (643 / 1283),
-                      height: height * (205 / 834),
+                      width: 643,
+                      height: 205,
                       child: Image.asset(
                         'assets/images/back_image_new.png',
                         fit: BoxFit.contain,
