@@ -21,7 +21,6 @@ class HashtagGameCard extends StatelessWidget {
             Image.asset('assets/images/hashtag.png', width: 80, height: 80),
             const SizedBox(width: 32),
             SizedBox(
-              width: 380,
               child: Text(
                 gameContents.name,
                 textAlign: TextAlign.center,

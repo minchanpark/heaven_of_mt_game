@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,6 +17,11 @@ class _HashTagGameOnboardingState extends State<HashTagGameOnboarding> {
   void initState() {
     super.initState();
     focusNode.requestFocus();
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        _isVisible = !_isVisible;
+      });
+    });
   }
 
   @override

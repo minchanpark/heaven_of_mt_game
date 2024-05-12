@@ -30,15 +30,15 @@ class _SizeUpWebGameState extends State<SizeUpWebGame> {
     focusNode.requestFocus();
     FirebaseAnalytics.instance.setCurrentScreen(screenName: "명대사퀴즈");
 
-    final movieIndices = List<int>.generate(sizeup.length, (i) => i);
-    final randommovie =
-        movieIndices.sublist(0, 3).map((index) => sizeup[index]).toList();
+    final sizeupIndices = List<int>.generate(sizeup.length, (i) => i);
+    final randomSizeup =
+        sizeupIndices.sublist(0, 3).map((index) => sizeup[index]).toList();
 
-    cards = randommovie.map((gameContents) => gameContents.name).toList();
+    cards = randomSizeup.map((gameContents) => gameContents.name).toList();
     answer_cards =
-        randommovie.map((gameContents) => gameContents.answer).toList();
+        randomSizeup.map((gameContents) => gameContents.answer).toList();
     explain_cards =
-        randommovie.map((gameContents) => gameContents.explain).toList();
+        randomSizeup.map((gameContents) => gameContents.explain).toList();
   }
 
   bool isUndoButtonVisible = true;
@@ -53,7 +53,7 @@ class _SizeUpWebGameState extends State<SizeUpWebGame> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
-    if (width < 1126 || height < 627) return ReadyPage();
+    if (width < 1126 || height < 627) return const ReadyPage();
     return Scaffold(
       backgroundColor: const Color.fromRGBO(14, 25, 62, 1),
       body: Stack(
@@ -143,6 +143,7 @@ class _SizeUpWebGameState extends State<SizeUpWebGame> {
                         SizedBox(width: width * 0.039),
                       ],
                     ),
+                    SizedBox(height: height * (30 / 834)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -197,42 +198,37 @@ class _SizeUpWebGameState extends State<SizeUpWebGame> {
                                                 fontFamily: 'DungGeunMo',
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: width * 0.06,
-                                                color:
-                                                    const Color(0xffffffffff)),
+                                                color: const Color(0xFFFFFFFF)),
                                           ),
                                         )
                                       : Column(
                                           children: [
-                                            SizedBox(
-                                              width: width * (409 / 1283),
-                                              height: height * (302 / 834),
-                                              child: Image.asset(
-                                                cards[index],
-                                                fit: BoxFit.fitHeight,
-                                              ),
+                                            SizedBox(height: height * (59 / 834)),
+                                            Image.asset(
+                                              cards[index],
+                                              width: width * (360 / 1283),
+                                              height: height * (240 / 834),
                                             ),
+                                            SizedBox(height: height * (50 / 834)),
                                             Text(
                                               explain_cards[index],
                                               style: TextStyle(
                                                 fontFamily: 'DungGeunMo',
                                                 fontWeight: FontWeight.w400,
-                                                fontSize: width * 0.05,
-                                                color:
-                                                    const Color(0xffffffffff),
+                                                fontSize: width * 0.04,
+                                                color: const Color(0xFFFFFFFF),
                                               ),
+                                              textAlign: TextAlign.center,
                                             ),
                                           ],
                                         )
                                   : !_isAnswered
                                       ? Column(
                                           children: [
-                                            SizedBox(
-                                              width: width * (400 / 1283),
-                                              height: height * (350 / 834),
-                                              child: Image.asset(
-                                                cards[index],
-                                                fit: BoxFit.fitHeight,
-                                              ),
+                                            Image.asset(
+                                              cards[index],
+                                              width: width * (268 / 1283),
+                                              height: height * (294 / 834),
                                             ),
                                             Text(
                                               explain_cards[index],
@@ -240,9 +236,9 @@ class _SizeUpWebGameState extends State<SizeUpWebGame> {
                                                 fontFamily: 'DungGeunMo',
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: width * 0.04,
-                                                color:
-                                                    const Color(0xffffffffff),
+                                                color: const Color(0xFFFFFFFF),
                                               ),
+                                              textAlign: TextAlign.center,
                                             ),
                                           ],
                                         )
@@ -254,8 +250,7 @@ class _SizeUpWebGameState extends State<SizeUpWebGame> {
                                                 fontFamily: 'DungGeunMo',
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: width * 0.09,
-                                                color:
-                                                    const Color(0xffffffffff)),
+                                                color: const Color(0xFFFFFFFF)),
                                           ),
                                         );
                             },
@@ -292,8 +287,8 @@ class _SizeUpWebGameState extends State<SizeUpWebGame> {
                     ),
                     // SizedBox(height: height * 0.038),
                     SizedBox(
-                      width: width * 0.173,
-                      height: height * 0.085,
+                      width: width * (260 / 1283),
+                      height: height * (71 / 834),
                       child: ElevatedButton(
                         onPressed: () {
                           setState(() {
@@ -310,7 +305,7 @@ class _SizeUpWebGameState extends State<SizeUpWebGame> {
                           style: TextStyle(
                             fontFamily: 'DungGeunMo',
                             fontWeight: FontWeight.w400,
-                            fontSize: width * 0.03,
+                            fontSize: width * (42 / 1283),
                             color: Colors.black,
                           ),
                         ),
