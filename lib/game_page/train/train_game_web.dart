@@ -323,8 +323,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                               text: '게임 시작')
                           : _showFinal
                               ? _isAnswered
-                                  ? SizedBox(
-                                      height: height * (71 / 834))
+                                  ? SizedBox(height: height * (70 / 834))
                                   : CustomButton(
                                       onPressed: () {
                                         setState(() {

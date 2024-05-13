@@ -1241,8 +1241,8 @@ final List<GameContents> train = [
 ];
 
 final List<UpDownGameContents> updown = [
-  UpDownGameContents(name: '', explain1: '77', index: '5'),
-  UpDownGameContents(name: '', explain1: '33', index: '7'),
+  UpDownGameContents(name: '', explain1: '88', index: '5'),
+  UpDownGameContents(name: '', explain1: '16', index: '7'),
 ];
 
 final List<GameContents> petit = [

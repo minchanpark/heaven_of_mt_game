@@ -124,7 +124,6 @@ class _UpdownTextInputState extends State<UpdownTextInput>
 
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-
     Widget _compareText() {
       return Text(
         '<',
