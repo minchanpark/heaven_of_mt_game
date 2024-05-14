@@ -1401,7 +1401,7 @@ class ChoiOnboarding extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: width * (10 / 1283)),
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(
                   "제공된 초성을 보고 떠오른 단어를",
@@ -2079,7 +2079,7 @@ class UpDownOnboarding extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: width * (10 / 1283)),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -2122,7 +2122,7 @@ class UpDownOnboarding extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: width * (10 / 1283)),
               Text(
                 "‘UP’과 ‘DOWN’을 통해 숫자를 맞춰주세요.",
                 style: TextStyle(
@@ -2243,7 +2243,7 @@ class SizeUpOnboarding extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: width * (10 / 1283)),
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(
                   "MC가 지정하는 물건의 길이를 눈대중으로",
