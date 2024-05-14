@@ -160,9 +160,9 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                             IconButton(
                               onPressed: () {
                                 // 타이머 진행중이면 버튼 disable
-                                if (_isCounting || _isShowing) {
-                                  return;
-                                }
+                                // if (_isCounting || _isShowing) {
+                                //return;
+                                //}
                                 Navigator.of(context)
                                     .pushReplacementNamed('/home');
                               },
@@ -183,7 +183,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                               ),
                             ),
                           ),
-                          _isShowing
+                          /* _isShowing
                               ? Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -199,9 +199,10 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                         )),
                                   ],
                                 )
-                              : const Text(' ',
-                                  style: TextStyle(
-                                      fontSize: 70)) // 이렇게 해도 되나 싶은...
+                              : */
+                          //모래시계, 카운트 다운 삭제
+                          const Text(' ',
+                              style: TextStyle(fontSize: 70)) // 이렇게 해도 되나 싶은...
                         ],
                       ),
                       Expanded(
@@ -222,9 +223,10 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                     onTap: () {
                                       controller.undo();
                                       // 타이머 진행중이면 버튼 disable
-                                      if (_isCounting || _isShowing) {
+                                      /*if (_isCounting || _isShowing) {
                                         return;
-                                      } else if (currentCardIndex == 0) {
+                                      }*/
+                                      if (currentCardIndex == 0) {
                                         setState(() {
                                           isUndoButtonVisible = true;
                                         });
@@ -285,9 +287,10 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                             GestureDetector(
                                 onTap: () {
                                   // 타이머 진행중이면 버튼 disable
-                                  if (_isCounting || _isShowing) {
+                                  /*if (_isCounting || _isShowing) {
                                     return;
-                                  } else if (currentCardIndex == 4) {
+                                  } */
+                                  if (currentCardIndex == 4) {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) => const GameOver(
@@ -336,7 +339,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                       text: '정답 보기')
                               : CustomButton(
                                   onPressed: () {
-                                    _startCountdown();
+                                    //_startCountdown();
                                     setState(() {
                                       _isShowing = true;
                                       _showFinal = false;

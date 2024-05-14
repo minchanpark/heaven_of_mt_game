@@ -177,7 +177,7 @@ class _SizeUpOnBoarding2State extends State<SizeUpOnBoarding2> {
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
-                      '길이는 0.5mm 단위로 끊어서 말해주세요.',
+                      '길이는 0.5cm 단위로 끊어서 종이에 적어주세요.',
                       style: TextStyle(
                           color: const Color(0xFFFFFFFF),
                           fontFamily: 'DungGeunMo',
