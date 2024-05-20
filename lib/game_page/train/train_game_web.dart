@@ -258,22 +258,24 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                           // 문제 표시 후 10초가 흘렀을 때
                                           ? _isAnswered
                                               ? cards[index]
-                                              : const Center(
+                                              : Center(
                                                   child: Text("문장은 무엇일까요?",
                                                       style: TextStyle(
                                                         fontFamily:
                                                             'DungGeunMo',
-                                                        fontSize: 80,
+                                                        fontSize:
+                                                            width * (80 / 1283),
                                                         color: Colors.white,
                                                       )),
                                                 )
                                           // 타이머 시작 전
-                                          : const Center(
+                                          : Center(
                                               child: Text(
                                                   "각 조의 첫 번째 주자는\n사회자에게 제시문을 확인해주세요!",
                                                   style: TextStyle(
                                                     fontFamily: 'DungGeunMo',
-                                                    fontSize: 54,
+                                                    fontSize:
+                                                        width * (54 / 1283),
                                                     color: Colors.white,
                                                   ),
                                                   textAlign: TextAlign.center),
@@ -348,7 +350,7 @@ class _TrainWebGamePageState extends State<TrainWebGame> {
                                   },
                                   width: 320,
                                   text: '제시문 보기'),
-                      SizedBox(height: height * 0.1)
+                      SizedBox(height: height * 0.045)
                     ],
                   ),
                 ),
