@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class PersonOnboarding extends StatelessWidget {
   PersonOnboarding({super.key});
@@ -1928,6 +1929,24 @@ class TrainOnboarding extends StatelessWidget {
             ],
           ),
         ),
+        Positioned(
+          top: height * (596 / 834),
+          left: width * (19 / 1283),
+          child: Row(
+            children: [
+              Image.asset('assets/images/ㅋㅋ.png',
+                  width: width * (75 / 1283), height: height * (75 / 834)),
+              Text(
+                '이 게임은 크크와 함께 개발하였습니다. ',
+                style: TextStyle(
+                    color: const Color(0xFFFFB202),
+                    fontSize: width * (20 / 1283),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'DungGeunMo'),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -2135,6 +2154,24 @@ class UpDownOnboarding extends StatelessWidget {
             ],
           ),
         ),
+        Positioned(
+          top: height * (596 / 834),
+          left: width * (19 / 1283),
+          child: Row(
+            children: [
+              Image.asset('assets/images/ㅋㅋ.png',
+                  width: width * (75 / 1283), height: height * (75 / 834)),
+              Text(
+                '이 게임은 크크와 함께 개발하였습니다. ',
+                style: TextStyle(
+                    color: const Color(0xFFFFB202),
+                    fontSize: width * (20 / 1283),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'DungGeunMo'),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -2292,6 +2329,24 @@ class SizeUpOnboarding extends StatelessWidget {
                   fontSize: width * 0.0159,
                   fontWeight: FontWeight.w400,
                 ),
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+          top: height * (596 / 834),
+          left: width * (19 / 1283),
+          child: Row(
+            children: [
+              Image.asset('assets/images/ㅋㅋ.png',
+                  width: width * (75 / 1283), height: height * (75 / 834)),
+              Text(
+                '이 게임은 크크와 함께 개발하였습니다. ',
+                style: TextStyle(
+                    color: const Color(0xFFFFB202),
+                    fontSize: width * (20 / 1283),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'DungGeunMo'),
               ),
             ],
           ),
@@ -2483,6 +2538,24 @@ class HashTagOnboarding extends StatelessWidget {
                   ),
                 ),
               ])
+            ],
+          ),
+        ),
+        Positioned(
+          top: height * (596 / 834),
+          left: width * (19 / 1283),
+          child: Row(
+            children: [
+              Image.asset('assets/images/ㅋㅋ.png',
+                  width: width * (75 / 1283), height: height * (75 / 834)),
+              Text(
+                '이 게임은 크크와 함께 개발하였습니다. ',
+                style: TextStyle(
+                    color: const Color(0xFFFFB202),
+                    fontSize: width * (20 / 1283),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'DungGeunMo'),
+              ),
             ],
           ),
         ),
@@ -2716,6 +2789,24 @@ class HowMuchOnboarding extends StatelessWidget {
                   ),
                 ),
               ])
+            ],
+          ),
+        ),
+        Positioned(
+          top: height * (596 / 834),
+          left: width * (19 / 1283),
+          child: Row(
+            children: [
+              Image.asset('assets/images/ㅋㅋ.png',
+                  width: width * (75 / 1283), height: height * (75 / 834)),
+              Text(
+                '이 게임은 크크와 함께 개발하였습니다. ',
+                style: TextStyle(
+                    color: const Color(0xFFFFB202),
+                    fontSize: width * (20 / 1283),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'DungGeunMo'),
+              ),
             ],
           ),
         ),
