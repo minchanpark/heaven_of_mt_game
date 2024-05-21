@@ -208,7 +208,7 @@ class _HashTagGameOnboardingState extends State<HashTagGameOnboarding> {
                   ],
                 ),
               ],
-            )
+            ),
           ],
         ),
         Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
